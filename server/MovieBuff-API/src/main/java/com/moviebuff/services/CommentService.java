@@ -16,5 +16,6 @@ public interface CommentService {
 	
 	void flagComment();
 	
+	void deleteComment(/*some field to identify the comment*/);
 	
 }
