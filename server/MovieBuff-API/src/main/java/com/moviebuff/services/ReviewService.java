@@ -1,5 +1,5 @@
 package com.moviebuff.services;
 
-public interface RatingService {
+public interface ReviewService {
 	
 }
