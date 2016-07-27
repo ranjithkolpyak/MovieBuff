@@ -1,60 +1,62 @@
 package com.moviebuff.entities;
 
+import java.util.Date;
+
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document
 public class MovieMetaDTO {
-	private String awards;
-	private String poster;
-	private Integer metaScore;
-	private Double imdbRating;
-	private Integer imdbVotes;
-	private String imdbID;
+	
+	@Id
+	private ObjectId id;
+	private Date released;
+	private String[] language;
+	private String[] country;
+	private String[] director;
+	private String[] writer;
 	
 	public MovieMetaDTO() {
-		
 	}
-	public MovieMetaDTO(String awards, String poster, Integer metaScore, Double imdbRating, Integer imdbVotes,
-			String imdbID) {
-		this.awards = awards;
-		this.poster = poster;
-		this.metaScore = metaScore;
-		this.imdbRating = imdbRating;
-		this.imdbVotes = imdbVotes;
-		this.imdbID = imdbID;
+	
+	public MovieMetaDTO(Date released, String[] language, String[] country, String[] director, String[] writer) {
+		super();
+		this.released = released;
+		this.language = language;
+		this.country = country;
+		this.director = director;
+		this.writer = writer;
 	}
-	public String getAwards() {
-		return awards;
+	
+	public Date getReleased() {
+		return released;
 	}
-	public void setAwards(String awards) {
-		this.awards = awards;
+	public void setReleased(Date released) {
+		this.released = released;
 	}
-	public String getPoster() {
-		return poster;
+	public String[] getLanguage() {
+		return language;
 	}
-	public void setPoster(String poster) {
-		this.poster = poster;
+	public void setLanguage(String[] language) {
+		this.language = language;
 	}
-	public Integer getMetaScore() {
-		return metaScore;
+	public String[] getCountry() {
+		return country;
 	}
-	public void setMetaScore(Integer metaScore) {
-		this.metaScore = metaScore;
+	public void setCountry(String[] country) {
+		this.country = country;
 	}
-	public Double getImdbRating() {
-		return imdbRating;
+	public String[] getDirector() {
+		return director;
 	}
-	public void setImdbRating(Double imdbRating) {
-		this.imdbRating = imdbRating;
+	public void setDirector(String[] director) {
+		this.director = director;
 	}
-	public Integer getImdbVotes() {
-		return imdbVotes;
+	public String[] getWriter() {
+		return writer;
 	}
-	public void setImdbVotes(Integer imdbVotes) {
-		this.imdbVotes = imdbVotes;
-	}
-	public String getImdbID() {
-		return imdbID;
-	}
-	public void setImdbID(String imdbID) {
-		this.imdbID = imdbID;
+	public void setWriter(String[] writer) {
+		this.writer = writer;
 	}
 	
 	
