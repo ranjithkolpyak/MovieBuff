@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.moviebuff</groupId>
-  <artifactId>Spring-Rest</artifactId>
+  <artifactId>MovieBuff</artifactId>
   <version>0.0.1</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
-  <name>Spring-Rest</name>
+  <name>MovieBuff</name>
   <url>http://maven.apache.org</url>
 
   <properties>

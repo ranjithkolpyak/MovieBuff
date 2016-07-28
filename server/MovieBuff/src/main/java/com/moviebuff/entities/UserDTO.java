@@ -1,5 +1,7 @@
 package com.moviebuff.entities;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -34,14 +36,14 @@ public class UserDTO {
 	private String password;
 	
 	@Field(value= "favourites")
-	private ObjectId[] favourites;
+	private List<ObjectId> favourites;
 
 	public UserDTO() {
 		super();
 	}
 
 	public UserDTO(ObjectId userId, UserType userType, String firstName, String lastName, String email, String userName,
-			String password, ObjectId[] favourites) {
+			String password, List<ObjectId> favourites) {
 		super();
 		this.userId = userId;
 		this.userType = userType;
@@ -109,11 +111,11 @@ public class UserDTO {
 		this.password = password;
 	}
 
-	public ObjectId[] getFavourites() {
+	public List<ObjectId> getFavourites() {
 		return favourites;
 	}
 
-	public void setFavourites(ObjectId[] favourites) {
+	public void setFavourites(List<ObjectId> favourites) {
 		this.favourites = favourites;
 	}
 	

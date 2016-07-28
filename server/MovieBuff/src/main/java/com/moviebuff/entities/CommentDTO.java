@@ -15,12 +15,11 @@ public class CommentDTO {
 	
 	
 	public CommentDTO() {
-		super();
+		
 	}
 	
 	@PersistenceConstructor
 	public CommentDTO(ObjectId id, String comment, String author, String movie, Boolean appropriate) {
-		super();
 		this.id = id;
 		this.comment = comment;
 		this.author = author;

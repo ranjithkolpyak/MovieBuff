@@ -1,5 +1,7 @@
 package com.moviebuff.entities;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -11,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author ranjithreddy
  *
  */
-@Document
+@Document(collection="movies")
 public class MovieDTO {
 	
 	@Id
@@ -22,7 +24,7 @@ public class MovieDTO {
 	private String rated;
 	private String runTime;
 	private String poster;
-	private Genre[] genre;
+	private List<Genre> genre;
 	private Type type;
 	@DBRef
 	private MovieMetaDTO meta;
@@ -32,7 +34,7 @@ public class MovieDTO {
 	
 	@PersistenceConstructor
 	public MovieDTO(ObjectId movieId, String name, Integer year, String rated, String runTime, String poster,
-			Genre[] genre, Type type, MovieMetaDTO meta) {
+			List<Genre> genre, Type type, MovieMetaDTO meta) {
 		super();
 		this.movieId = movieId;
 		this.name = name;
@@ -93,11 +95,11 @@ public class MovieDTO {
 		this.poster = poster;
 	}
 
-	public Genre[] getGenre() {
+	public List<Genre> getGenre() {
 		return genre;
 	}
 
-	public void setGenre(Genre[] genre) {
+	public void setGenre(List<Genre> genre) {
 		this.genre = genre;
 	}
 
