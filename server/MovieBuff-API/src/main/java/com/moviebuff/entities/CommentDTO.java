@@ -1,7 +1,13 @@
 package com.moviebuff.entities;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class CommentDTO {
-	private Integer id;
+	
+	private ObjectId id;
 	private String comment;
 	private String author;   //can be changed to User's _id field later using denormalization
 	private String movie;    //can be changed to Movie's _id field later using denormalization
@@ -12,7 +18,8 @@ public class CommentDTO {
 		super();
 	}
 	
-	public CommentDTO(Integer id, String comment, String author, String movie, Boolean appropriate) {
+	@PersistenceConstructor
+	public CommentDTO(ObjectId id, String comment, String author, String movie, Boolean appropriate) {
 		super();
 		this.id = id;
 		this.comment = comment;
@@ -21,10 +28,10 @@ public class CommentDTO {
 		this.appropriate = appropriate;
 	}
 	
-	public Integer getId() {
+	public ObjectId getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 	public String getComment() {
