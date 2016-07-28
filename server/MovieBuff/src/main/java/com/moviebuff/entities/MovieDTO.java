@@ -1,5 +1,6 @@
 package com.moviebuff.entities;
 
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -26,15 +27,20 @@ public class MovieDTO {
 	private String poster;
 	private List<Genre> genre;
 	private Type type;
-	@DBRef
-	private MovieMetaDTO meta;
+	private Date released;
+	private List<String> language;
+	private List<String> country;
+	private List<String> director;
+	private List<String> writer;
 	
-	public MovieDTO() {
+	public MovieDTO(){
+		
 	}
 	
 	@PersistenceConstructor
 	public MovieDTO(ObjectId movieId, String name, Integer year, String rated, String runTime, String poster,
-			List<Genre> genre, Type type, MovieMetaDTO meta) {
+			List<Genre> genre, Type type, Date released, List<String> language, List<String> country,
+			List<String> director, List<String> writer) {
 		super();
 		this.movieId = movieId;
 		this.name = name;
@@ -44,7 +50,11 @@ public class MovieDTO {
 		this.poster = poster;
 		this.genre = genre;
 		this.type = type;
-		this.meta = meta;
+		this.released = released;
+		this.language = language;
+		this.country = country;
+		this.director = director;
+		this.writer = writer;
 	}
 
 	public ObjectId getMovieId() {
@@ -111,13 +121,46 @@ public class MovieDTO {
 		this.type = type;
 	}
 
-	public MovieMetaDTO getMeta() {
-		return meta;
+	public Date getReleased() {
+		return released;
 	}
 
-	public void setMeta(MovieMetaDTO meta) {
-		this.meta = meta;
+	public void setReleased(Date released) {
+		this.released = released;
 	}
+
+	public List<String> getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(List<String> language) {
+		this.language = language;
+	}
+
+	public List<String> getCountry() {
+		return country;
+	}
+
+	public void setCountry(List<String> country) {
+		this.country = country;
+	}
+
+	public List<String> getDirector() {
+		return director;
+	}
+
+	public void setDirector(List<String> director) {
+		this.director = director;
+	}
+
+	public List<String> getWriter() {
+		return writer;
+	}
+
+	public void setWriter(List<String> writer) {
+		this.writer = writer;
+	}
+	
 	
 	
 }
