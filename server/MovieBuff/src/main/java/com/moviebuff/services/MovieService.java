@@ -1,10 +1,10 @@
 package com.moviebuff.services;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.moviebuff.entities.CommentDTO;
 import com.moviebuff.entities.MovieDTO;
-import com.moviebuff.entities.MovieMetaDTO;
 import com.moviebuff.entities.UserDTO;
 
 /**
@@ -18,32 +18,44 @@ public interface MovieService {
 	 * gives a list of all the movies/tv series
 	 * @return a list of movies in the database
 	 */
-	List<MovieDTO> getMovies();
+	List<MovieDTO> getAllMovies();
 	
 	/**
 	 * gives a list of movies by genre
 	 * @return a list of movies by genre
 	 */
-	List<MovieDTO> getMovieByGenre();
+	List<MovieDTO> getAllMovieByGenre(String genre);
 	/**
 	 * 
 	 * @return a list of movies/tv series by year released
 	 */
 	List<MovieDTO> getAllMoviesByYear(Integer year);
 	
-	public MovieDTO getMovieByYear(Integer year);
+	MovieDTO getMovieByYear(Integer year);
 	
-	/*---------------------------------------------------------------*/
-	//POST operations, only an admin is authorized to post data about the movie
-	//POST is adding new data about movie.
-	void addMetaData(MovieMetaDTO meta);
-	void addMovie(MovieDTO movie);
+	List<MovieDTO> getMovieByType(String type);
+	
+	
+	/**
+	 * Admin can add a movie by passing the movie object
+	 * @param movie object to be added to the databse
+	 * @return movie object if added successfully.
+	 */
+	public MovieDTO addMovie(MovieDTO movie);
+	/**
+	 * This method utilizes the comment service to add comments
+	 * @param comment
+	 */
 	void addComments(CommentDTO comment);
 	
 	
+	
+	
 	/*PUT operations includes updating the fields of movie, some are updating any field, */
-	void updateMetaData(MovieMetaDTO meta);
-	void updateMovie(MovieDTO movie);
+	MovieDTO updateMovie(MovieDTO movie);
+	
+	
+	
 	
 	/*DELETE operations include deleting movie, deleting comments, delete user account*/
 	/**
@@ -60,5 +72,4 @@ public interface MovieService {
 	 * User can delete his account if he likes to.
 	 * @param user object to identify and delete the account.
 	 */
-	void deleteAccount(UserDTO user);
 }

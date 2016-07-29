@@ -1,13 +1,14 @@
 package com.moviebuff.entities;
 
-import java.util.Date;
 import java.util.List;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Language;
 
 /**
  * This entity contains the basic fields of the movie object. 
@@ -18,29 +19,38 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MovieDTO {
 	
 	@Id
-	private ObjectId movieId;
-	
+	private Long movieId;
+	@TextIndexed
 	private String name;
 	private Integer year;
+	@TextIndexed
 	private String rated;
 	private String runTime;
 	private String poster;
-	private List<Genre> genre;
-	private Type type;
-	private Date released;
-	private List<String> language;
+	@TextIndexed
+	private String type;
+	private String released;
+	@Language
+	private List<String> lang;
+	@TextIndexed
+	private List<String> genre;
 	private List<String> country;
+	@TextIndexed
 	private List<String> director;
 	private List<String> writer;
+	@TextIndexed
+	private List<String> cast;
+	
+	private String plot;
 	
 	public MovieDTO(){
 		
 	}
 	
 	@PersistenceConstructor
-	public MovieDTO(ObjectId movieId, String name, Integer year, String rated, String runTime, String poster,
-			List<Genre> genre, Type type, Date released, List<String> language, List<String> country,
-			List<String> director, List<String> writer) {
+	public MovieDTO(Long movieId, String name, Integer year, String rated, String runTime, String poster,
+			List<String> genre, String type, String released, List<String> lang, List<String> country,
+			List<String> director, List<String> writer, List<String> cast, String plot) {
 		super();
 		this.movieId = movieId;
 		this.name = name;
@@ -51,17 +61,19 @@ public class MovieDTO {
 		this.genre = genre;
 		this.type = type;
 		this.released = released;
-		this.language = language;
+		this.lang = lang;
 		this.country = country;
 		this.director = director;
 		this.writer = writer;
+		this.cast = cast;
+		this.plot = plot;
 	}
 
-	public ObjectId getMovieId() {
+	public Long getMovieId() {
 		return movieId;
 	}
 
-	public void setMovieId(ObjectId movieId) {
+	public void setMovieId(Long movieId) {
 		this.movieId = movieId;
 	}
 
@@ -105,36 +117,36 @@ public class MovieDTO {
 		this.poster = poster;
 	}
 
-	public List<Genre> getGenre() {
+	public List<String> getGenre() {
 		return genre;
 	}
 
-	public void setGenre(List<Genre> genre) {
+	public void setGenre(List<String> genre) {
 		this.genre = genre;
 	}
 
-	public Type getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(Type type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
-	public Date getReleased() {
+	public String getReleased() {
 		return released;
 	}
 
-	public void setReleased(Date released) {
+	public void setReleased(String released) {
 		this.released = released;
 	}
 
-	public List<String> getLanguage() {
-		return language;
+	public List<String> getLang() {
+		return lang;
 	}
 
-	public void setLanguage(List<String> language) {
-		this.language = language;
+	public void setLang(List<String> lang) {
+		this.lang = lang;
 	}
 
 	public List<String> getCountry() {
@@ -160,7 +172,21 @@ public class MovieDTO {
 	public void setWriter(List<String> writer) {
 		this.writer = writer;
 	}
-	
-	
+
+	public List<String> getCast() {
+		return cast;
+	}
+
+	public void setCast(List<String> cast) {
+		this.cast = cast;
+	}
+
+	public String getPlot() {
+		return plot;
+	}
+
+	public void setPlot(String plot) {
+		this.plot = plot;
+	}
 	
 }

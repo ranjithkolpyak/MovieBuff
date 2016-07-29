@@ -20,8 +20,12 @@ public class UserDTO {
 	
 	@Id
 	private ObjectId userId;
-	
-	private UserType userType;
+	/*will be using an integer for specifying user type 
+	 * @value 0 for admin
+	 * @value 1 for user
+	 * anything other than those will be considered invalid
+	 */
+	private Integer userType;
 	
 	private String firstName;
 	
@@ -42,7 +46,7 @@ public class UserDTO {
 		super();
 	}
 
-	public UserDTO(ObjectId userId, UserType userType, String firstName, String lastName, String email, String userName,
+	public UserDTO(ObjectId userId, Integer userType, String firstName, String lastName, String email, String userName,
 			String password, List<ObjectId> favourites) {
 		super();
 		this.userId = userId;
@@ -63,11 +67,11 @@ public class UserDTO {
 		this.userId = userId;
 	}
 
-	public UserType getUserType() {
+	public Integer getUserType() {
 		return userType;
 	}
 
-	public void setUserType(UserType userType) {
+	public void setUserType(Integer userType) {
 		this.userType = userType;
 	}
 
