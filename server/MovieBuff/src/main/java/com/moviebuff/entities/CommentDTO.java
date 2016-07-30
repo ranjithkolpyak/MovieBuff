@@ -9,10 +9,11 @@ public class CommentDTO {
 	
 	@Id
 	private String commentId;
+	
 	private String comment;
 	private String userId;   
 	private String author;
-	private String movieId;    
+	private String movieId;   
 	private Boolean appropriate; 
 	
 	public CommentDTO() {
@@ -26,7 +27,7 @@ public class CommentDTO {
 		this.userId = userId;
 		this.author = author;
 		this.movieId = movieId;
-		this.appropriate = false;
+		this.appropriate = appropriate;
 	}
 	
 	public String getCommentId() {
