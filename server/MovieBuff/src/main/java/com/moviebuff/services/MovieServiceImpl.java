@@ -1,13 +1,10 @@
 package com.moviebuff.services;
 
 import java.util.List;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.moviebuff.entities.CommentDTO;
 import com.moviebuff.entities.MovieDTO;
-import com.moviebuff.entities.UserDTO;
 import com.moviebuff.repository.MovieRepository;
 
 @Service
@@ -21,25 +18,17 @@ public class MovieServiceImpl implements MovieService{
 		return repo.findAll();
 	}
 
-	@Override
-	public List<MovieDTO> getAllMovieByGenre(String genre) {
-		return repo.findAllByGenre(genre);
-	}
 
 	@Override
 	public List<MovieDTO> getAllMoviesByYear(Integer year) {
-		return null;
-	}
-
-	@Override
-	public MovieDTO getMovieByYear(Integer year) {
-		return repo.findByYear(year);
+		return repo.findAllByYear(year);
 	}
 	
 	@Override
-	public List<MovieDTO> getMovieByType(String type) {
-		return repo.findByType(type);
+	public List<MovieDTO> getMovieBy(String type, String anyType){
+		return repo.findAllBy(type, anyType);
 	}
+	
 	
 	@Override
 	public MovieDTO addMovie(MovieDTO movie) {
@@ -53,20 +42,26 @@ public class MovieServiceImpl implements MovieService{
 	}
 
 	@Override
-	public MovieDTO updateMovie(MovieDTO movie) {
-		return repo.insert(movie);
+	public MovieDTO updateMovie(MovieDTO movie, Long movieId) {
+		MovieDTO movie1 = repo.findOne(movieId);
+		if(movie1.getMovieId().equals(movieId) && movie.getMovieId().equals(movieId)){
+			repo.save(movie);
+			return movie;
+		}
+		else
+			//throw new IllegalUpdateException();
+			return null;
+//		return repo.updateMovie(movie, movieId);
 	}
 
 	@Override
-	public void deleteMovie(MovieDTO movie) {
-		
+	public void deleteMovie(Long movieId) {
+		repo.delete(movieId);
 	}
 
 	@Override
 	public void deleteComment(CommentDTO comment) {
 		
 	}
-
-	
 	
 }

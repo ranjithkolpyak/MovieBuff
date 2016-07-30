@@ -1,11 +1,8 @@
 package com.moviebuff.services;
 
 import java.util.List;
-import java.util.stream.Stream;
-
 import com.moviebuff.entities.CommentDTO;
 import com.moviebuff.entities.MovieDTO;
-import com.moviebuff.entities.UserDTO;
 
 /**
  * Provides different services related to movies
@@ -21,19 +18,18 @@ public interface MovieService {
 	List<MovieDTO> getAllMovies();
 	
 	/**
-	 * gives a list of movies by genre
-	 * @return a list of movies by genre
-	 */
-	List<MovieDTO> getAllMovieByGenre(String genre);
-	/**
 	 * 
 	 * @return a list of movies/tv series by year released
 	 */
 	List<MovieDTO> getAllMoviesByYear(Integer year);
 	
-	MovieDTO getMovieByYear(Integer year);
-	
-	List<MovieDTO> getMovieByType(String type);
+	/**
+	 * This method returns list of movies based any type
+	 * @param type may be movie type or genre or rating or any actor or director etc only String values
+	 * @param anyType the actual value passes as a query parameter
+	 * @return list of MovieDTOs
+	 */
+	List<MovieDTO> getMovieBy(String type, String anyType);
 	
 	
 	/**
@@ -48,21 +44,24 @@ public interface MovieService {
 	 */
 	void addComments(CommentDTO comment);
 	
-	
-	
-	
-	/*PUT operations includes updating the fields of movie, some are updating any field, */
-	MovieDTO updateMovie(MovieDTO movie);
+	/**
+	 * Update movie
+	 * @param movie
+	 * @param movieId
+	 * @return
+	 */
+	MovieDTO updateMovie(MovieDTO movie, Long movieId);
 	
 	
 	
 	
 	/*DELETE operations include deleting movie, deleting comments, delete user account*/
 	/**
-	 * Only an admin can delete a movie
-	 * @param movie object to identify the movie object
+	 * Deleting a movie document from the database using an Id
+	 * @param movieId
 	 */
-	void deleteMovie(MovieDTO movie);
+	void deleteMovie(Long movieId);
+	
 	/**
 	 * Only an admin can delete a comment that is flagged as inappropriate
 	 * @param comment object to identify the flagged comment

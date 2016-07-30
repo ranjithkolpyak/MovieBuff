@@ -1,10 +1,9 @@
 package com.moviebuff.repository;
 
 import java.util.List;
-import java.util.stream.Stream;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
 import com.moviebuff.entities.MovieDTO;
 /**
  * This interface is populated by the spring data module, MongoRepository 
@@ -12,33 +11,24 @@ import com.moviebuff.entities.MovieDTO;
  * @author ranjithreddy
  *
  */
-public interface MovieRepository extends MongoRepository<MovieDTO, ObjectId>{
+public interface MovieRepository extends MongoRepository<MovieDTO, Long>{
 	
-	/**
-	 * 
-	 * @param name
-	 * @return
-	 */
-	public MovieDTO findByName(String name);
 	/**
 	 * 
 	 * @param year
 	 * @return
 	 */
-	public MovieDTO findByYear(Integer year);
-	/**
-	 * 
-	 * @param genre
-	 * @return
-	 */
-	public List<MovieDTO> findByGenre(String genre);
-	/**
-	 * 
-	 * @param genre
-	 * @return
-	 */
-	public List<MovieDTO> findAllByGenre(String genre);
+	public List<MovieDTO> findAllByYear(Integer year);
 	
-	public List<MovieDTO> findByType(String type);
+	/**
+	 * 
+	 * @param type
+	 * @param anyType
+	 * @return
+	 */
+	@Query(value="{?0 : ?1}")
+	public List<MovieDTO> findAllBy(String type, String anyType);
+	
+	
 	
 }
