@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CommentDTO {
 	
 	@Id
-	private Long commentId;
+	private String commentId;
 	private String comment;
-	private Long userId;   
+	private String userId;   
 	private String author;
-	private Long movieId;    
+	private String movieId;    
 	private Boolean appropriate; 
 	
 	public CommentDTO() {
@@ -20,7 +20,7 @@ public class CommentDTO {
 	}
 	
 	@PersistenceConstructor
-	public CommentDTO(Long commentId, String comment, Long userId, String author, Long movieId, Boolean appropriate) {
+	public CommentDTO(String commentId, String comment, String userId, String author, String movieId, Boolean appropriate) {
 		this.commentId = commentId;
 		this.comment = comment;
 		this.userId = userId;
@@ -29,10 +29,10 @@ public class CommentDTO {
 		this.appropriate = false;
 	}
 	
-	public Long getCommentId() {
+	public String getCommentId() {
 		return commentId;
 	}
-	public void setCommentId(Long commentId) {
+	public void setCommentId(String commentId) {
 		this.commentId = commentId;
 	}
 	public String getComment() {
@@ -41,16 +41,16 @@ public class CommentDTO {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public Long getMovieId() {
+	public String getMovieId() {
 		return movieId;
 	}
-	public void setMovieId(Long movieId) {
+	public void setMovieId(String movieId) {
 		this.movieId = movieId;
 	}
 	public Boolean getAppropriate() {

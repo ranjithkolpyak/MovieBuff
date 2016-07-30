@@ -1,6 +1,7 @@
 package com.moviebuff.services;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.moviebuff.entities.CommentDTO;
@@ -25,8 +26,8 @@ public class MovieServiceImpl implements MovieService{
 	}
 	
 	@Override
-	public List<MovieDTO> getMovieBy(String type, String anyType){
-		return repo.findAllBy(type, anyType);
+	public List<MovieDTO> getMovieByAttributes(String key, String value){
+		return repo.findAllByAttributesIgnoreCase(key, value);
 	}
 	
 	
@@ -42,7 +43,7 @@ public class MovieServiceImpl implements MovieService{
 	}
 
 	@Override
-	public MovieDTO updateMovie(MovieDTO movie, Long movieId) {
+	public MovieDTO updateMovie(MovieDTO movie, String movieId) {
 		MovieDTO movie1 = repo.findOne(movieId);
 		if(movie1.getMovieId().equals(movieId) && movie.getMovieId().equals(movieId)){
 			repo.save(movie);
@@ -55,13 +56,8 @@ public class MovieServiceImpl implements MovieService{
 	}
 
 	@Override
-	public void deleteMovie(Long movieId) {
+	public void deleteMovie(String movieId) {
 		repo.delete(movieId);
-	}
-
-	@Override
-	public void deleteComment(CommentDTO comment) {
-		
 	}
 	
 }

@@ -11,7 +11,7 @@ import com.moviebuff.entities.MovieDTO;
  * @author ranjithreddy
  *
  */
-public interface MovieRepository extends MongoRepository<MovieDTO, Long>{
+public interface MovieRepository extends MongoRepository<MovieDTO, String>{
 	
 	/**
 	 * 
@@ -27,8 +27,8 @@ public interface MovieRepository extends MongoRepository<MovieDTO, Long>{
 	 * @return
 	 */
 	@Query(value="{?0 : ?1}")
-	public List<MovieDTO> findAllBy(String type, String anyType);
+	public List<MovieDTO> findAllByAttributesIgnoreCase(String type, String anyType);
 	
-	
+	public MovieDTO findById(String movieId);
 	
 }

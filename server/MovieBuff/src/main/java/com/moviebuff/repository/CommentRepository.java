@@ -2,16 +2,15 @@ package com.moviebuff.repository;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import com.moviebuff.entities.CommentDTO;
 
-public interface CommentRepository extends MongoRepository<CommentDTO, ObjectId>{
+public interface CommentRepository extends MongoRepository<CommentDTO, String>{
 	
-	List<CommentDTO> findByMovieId(Long movieId);
+	List<CommentDTO> findAllByMovieId(String movieId);
 	
 	@Query("{'commentId': ?0}")
-	void findAndDeleteComment(Long commentId);
+	void findAndDeleteComment(String commentId);
 }

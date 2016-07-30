@@ -25,11 +25,11 @@ public interface MovieService {
 	
 	/**
 	 * This method returns list of movies based any type
-	 * @param type may be movie type or genre or rating or any actor or director etc only String values
-	 * @param anyType the actual value passes as a query parameter
+	 * @param key may be movie type or genre or rating or any actor or director etc only String values
+	 * @param value the actual value passes as a query parameter
 	 * @return list of MovieDTOs
 	 */
-	List<MovieDTO> getMovieBy(String type, String anyType);
+	List<MovieDTO> getMovieByAttributes(String key, String value);
 	
 	
 	/**
@@ -50,7 +50,7 @@ public interface MovieService {
 	 * @param movieId
 	 * @return
 	 */
-	MovieDTO updateMovie(MovieDTO movie, Long movieId);
+	MovieDTO updateMovie(MovieDTO movie, String movieId);
 	
 	
 	
@@ -60,15 +60,6 @@ public interface MovieService {
 	 * Deleting a movie document from the database using an Id
 	 * @param movieId
 	 */
-	void deleteMovie(Long movieId);
+	void deleteMovie(String movieId);
 	
-	/**
-	 * Only an admin can delete a comment that is flagged as inappropriate
-	 * @param comment object to identify the flagged comment
-	 */
-	void deleteComment(CommentDTO comment);
-	/**
-	 * User can delete his account if he likes to.
-	 * @param user object to identify and delete the account.
-	 */
 }

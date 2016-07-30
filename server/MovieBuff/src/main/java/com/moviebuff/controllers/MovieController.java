@@ -20,9 +20,9 @@ public class MovieController {
 	@Autowired
 	MovieService service;
 	
-	@RequestMapping(method=RequestMethod.GET, path="{type}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<MovieDTO> getMovieBy(@PathVariable("type") String type, @RequestParam(value="value", defaultValue="Movie") String anyType){
-		return service.getMovieBy(type, anyType);
+	@RequestMapping(method=RequestMethod.GET, path="where/{key}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<MovieDTO> getMovieBy(@PathVariable("key") String key, @RequestParam(value="value", defaultValue="Movie") String value){
+		return service.getMovieByAttributes(key, value);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="year/{year}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -41,12 +41,12 @@ public class MovieController {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, path="{id}", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public MovieDTO updateMovie(@RequestBody MovieDTO movie, @PathVariable("id") Long movieId){
+	public MovieDTO updateMovie(@RequestBody MovieDTO movie, @PathVariable("id") String movieId){
 		return service.updateMovie(movie, movieId);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, path="{id}")
-	public void deleteMovie(@PathVariable("id") Long movieId){
+	public void deleteMovie(@PathVariable("id") String movieId){
 		service.deleteMovie(movieId);
 	}
 	

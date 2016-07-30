@@ -1,7 +1,6 @@
 package com.moviebuff.services;
 
 import java.util.List;
-
 import com.moviebuff.entities.CommentDTO;
 
 /**
@@ -13,10 +12,10 @@ public interface CommentService {
 	
 	CommentDTO addComment(CommentDTO comment);
 	
-	List<CommentDTO> getComments(Long movieId);
+	List<CommentDTO> getComments(String movieId);
 	
-	Boolean flagComment(Long commentId);
+	Boolean flagComment(String commentId);
 	
-	void deleteComment(Long commentId);
+	void deleteComment(String commentId);
 	
 }

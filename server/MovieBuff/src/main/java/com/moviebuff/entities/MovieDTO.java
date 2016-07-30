@@ -1,11 +1,9 @@
 package com.moviebuff.entities;
 
 import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Language;
@@ -19,7 +17,8 @@ import org.springframework.data.mongodb.core.mapping.Language;
 public class MovieDTO {
 	
 	@Id
-	private Long movieId;
+	private String id;
+	
 	@TextIndexed
 	private String name;
 	private Integer year;
@@ -48,11 +47,11 @@ public class MovieDTO {
 	}
 	
 	@PersistenceConstructor
-	public MovieDTO(Long movieId, String name, Integer year, String rated, String runTime, String poster,
+	public MovieDTO(String id, String name, Integer year, String rated, String runTime, String poster,
 			List<String> genre, String type, String released, List<String> lang, List<String> country,
 			List<String> director, List<String> writer, List<String> cast, String plot) {
 		super();
-		this.movieId = movieId;
+		this.id = id;
 		this.name = name;
 		this.year = year;
 		this.rated = rated;
@@ -69,12 +68,12 @@ public class MovieDTO {
 		this.plot = plot;
 	}
 
-	public Long getMovieId() {
-		return movieId;
+	public String getMovieId() {
+		return id;
 	}
 
-	public void setMovieId(Long movieId) {
-		this.movieId = movieId;
+	public void setMovieId(String movieId) {
+		this.id = movieId;
 	}
 
 	public String getName() {

@@ -14,7 +14,7 @@ public class CustomCommentRepository {
 	@Autowired
 	MongoTemplate mongoTemplate;
 	
-	public Boolean flagComment(Long commentId){
+	public Boolean flagComment(String commentId){
 		Query query = new Query(Criteria.where("commentId").is(commentId));
 		CommentDTO comment = mongoTemplate.findOne(query, CommentDTO.class, mongoTemplate.getCollectionName(CommentDTO.class));
 		comment.setAppropriate(false);

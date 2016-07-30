@@ -17,17 +17,17 @@ public class CommentServiceImpl implements CommentService{
 	CustomCommentRepository customRepo;
 	
 	@Override
-	public List<CommentDTO> getComments(Long movieId) {
-		return commentRepo.findByMovieId(movieId);
+	public List<CommentDTO> getComments(String movieId) {
+		return commentRepo.findAllByMovieId(movieId);
 	}
 
 	@Override
-	public Boolean flagComment(Long commentId) {
+	public Boolean flagComment(String commentId) {
 		return customRepo.flagComment(commentId);
 	}
 
 	@Override
-	public void deleteComment(Long commentId) {
+	public void deleteComment(String commentId) {
 		commentRepo.findAndDeleteComment(commentId);
 	}
 
