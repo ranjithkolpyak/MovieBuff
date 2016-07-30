@@ -1,37 +1,39 @@
 package com.moviebuff.entities;
 
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection="comments")
 public class CommentDTO {
 	
-	private ObjectId id;
+	@Id
+	private Long commentId;
 	private String comment;
-	private String author;   //can be changed to User's _id field later using denormalization
-	private String movie;    //can be changed to Movie's _id field later using denormalization
+	private Long userId;   
+	private String author;
+	private Long movieId;    
 	private Boolean appropriate; 
-	
 	
 	public CommentDTO() {
 		
 	}
 	
 	@PersistenceConstructor
-	public CommentDTO(ObjectId id, String comment, String author, String movie, Boolean appropriate) {
-		this.id = id;
+	public CommentDTO(Long commentId, String comment, Long userId, String author, Long movieId, Boolean appropriate) {
+		this.commentId = commentId;
 		this.comment = comment;
+		this.userId = userId;
 		this.author = author;
-		this.movie = movie;
-		this.appropriate = appropriate;
+		this.movieId = movieId;
+		this.appropriate = false;
 	}
 	
-	public ObjectId getId() {
-		return id;
+	public Long getCommentId() {
+		return commentId;
 	}
-	public void setId(ObjectId id) {
-		this.id = id;
+	public void setCommentId(Long commentId) {
+		this.commentId = commentId;
 	}
 	public String getComment() {
 		return comment;
@@ -39,17 +41,17 @@ public class CommentDTO {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public String getAuthor() {
-		return author;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
-	public String getMovie() {
-		return movie;
+	public Long getMovieId() {
+		return movieId;
 	}
-	public void setMovie(String movie) {
-		this.movie = movie;
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
 	}
 	public Boolean getAppropriate() {
 		return appropriate;
@@ -57,6 +59,13 @@ public class CommentDTO {
 	public void setAppropriate(Boolean appropriate) {
 		this.appropriate = appropriate;
 	}
-	
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 	
 }

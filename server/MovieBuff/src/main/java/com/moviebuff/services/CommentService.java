@@ -3,7 +3,6 @@ package com.moviebuff.services;
 import java.util.List;
 
 import com.moviebuff.entities.CommentDTO;
-import com.moviebuff.entities.MovieDTO;
 
 /**
  * Provides service like add comments in the reviews,
@@ -12,10 +11,12 @@ import com.moviebuff.entities.MovieDTO;
  */
 public interface CommentService {
 	
-	List<CommentDTO> getComments(MovieDTO movie);
+	CommentDTO addComment(CommentDTO comment);
 	
-	void flagComment();
+	List<CommentDTO> getComments(Long movieId);
 	
-	void deleteComment(/*some field to identify the comment*/);
+	Boolean flagComment(Long commentId);
+	
+	void deleteComment(Long commentId);
 	
 }
