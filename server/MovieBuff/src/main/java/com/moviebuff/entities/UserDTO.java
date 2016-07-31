@@ -2,11 +2,11 @@ package com.moviebuff.entities;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * this entity contains the fields related to any user, basic info like name, email, password, 
@@ -15,64 +15,63 @@ import org.springframework.data.mongodb.core.mapping.Field;
  *
  */
 
-@Document
+@Document(collection="users")
 public class UserDTO {
 	
 	@Id
-	private ObjectId userId;
-	/*will be using an integer for specifying user type 
-	 * @value 0 for admin
-	 * @value 1 for user
-	 * anything other than those will be considered invalid
-	 */
-	private Integer userType;
+	private String id;
 	
+	private String role;
+	
+	@TextIndexed
 	private String firstName;
 	
+	@TextIndexed
 	private String lastName;
 	
 	@Indexed(unique= true)
+	@TextIndexed
 	private String email;
 	
 	@Indexed(unique= true)
+	@TextIndexed
 	private String userName;
 	
 	private String password;
 	
-	@Field(value= "favourites")
-	private List<ObjectId> favourites;
+	private List<String> favList;
 
 	public UserDTO() {
-		super();
+		
 	}
-
-	public UserDTO(ObjectId userId, Integer userType, String firstName, String lastName, String email, String userName,
-			String password, List<ObjectId> favourites) {
-		super();
-		this.userId = userId;
-		this.userType = userType;
+	
+	@PersistenceConstructor
+	public UserDTO(String id, String role, String firstName, String lastName, String email, String userName,
+			String password, List<String> favList) {
+		this.id = id;
+		this.role = role;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
-		this.favourites = favourites;
+		this.favList = favList;
 	}
 
-	public ObjectId getUserId() {
-		return userId;
+	public String getUserId() {
+		return id;
 	}
 
-	public void setUserId(ObjectId userId) {
-		this.userId = userId;
+	public void setUserId(String id) {
+		this.id = id;
 	}
 
-	public Integer getUserType() {
-		return userType;
+	public String getRole() {
+		return role;
 	}
 
-	public void setUserType(Integer userType) {
-		this.userType = userType;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getFirstName() {
@@ -114,14 +113,13 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public List<ObjectId> getFavourites() {
-		return favourites;
-	}
-
-	public void setFavourites(List<ObjectId> favourites) {
-		this.favourites = favourites;
-	}
 	
+	public List<String> getFavList() {
+		return favList;
+	}
+
+	public void setFavList(List<String> favList) {
+		this.favList = favList;
+	}
 	
 }
