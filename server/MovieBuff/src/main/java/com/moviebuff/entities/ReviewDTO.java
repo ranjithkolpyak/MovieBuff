@@ -113,8 +113,4 @@ public class ReviewDTO {
 		this.userRating = userRating;
 	}
 	
-//	public List<Double> addRating(Double rating){
-//		this.userRating.add(rating);
-//		return this.userRating;
-//	}
 }
