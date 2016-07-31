@@ -49,5 +49,11 @@ public class ReviewServiceImpl implements ReviewService{
 	public void deleteReview(String reviewId) {
 		reviewRepo.delete(reviewId);
 	}
+
+	@Override
+	public void deleteReviewByMovie(String movieId) {
+		
+	}
+	
 	
 }

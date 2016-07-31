@@ -6,4 +6,6 @@ import com.moviebuff.entities.ReviewDTO;
 public interface ReviewRepository extends MongoRepository<ReviewDTO, String>{
 	
 	ReviewDTO findByMovieId(String movieId);
+	
+	void deleteByMovieId(String movieId);
 }

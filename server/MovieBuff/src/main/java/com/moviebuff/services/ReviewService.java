@@ -14,4 +14,5 @@ public interface ReviewService {
 	
 	void deleteReview(String reviewId);
 	
+	void deleteReviewByMovie(String movieId);
 }

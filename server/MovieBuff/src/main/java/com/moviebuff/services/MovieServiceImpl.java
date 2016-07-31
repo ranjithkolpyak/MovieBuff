@@ -13,6 +13,12 @@ public class MovieServiceImpl implements MovieService{
 	
 	@Autowired
 	MovieRepository repo;
+	
+	@Autowired
+	ReviewService reviewService;
+	
+	@Autowired
+	CommentService commentService;
 
 	@Override
 	public List<MovieDTO> getAllMovies() {
