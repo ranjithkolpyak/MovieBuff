@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+header{
+    color: aliceblue;
+}
+
+span{
+    float: right;
+}
+
+.seperator{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.btn{
+    padding-bottom: 0%;
+}
+input {
+    color: black;
+}
