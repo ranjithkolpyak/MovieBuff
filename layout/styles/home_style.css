@@ -1,10 +1,25 @@
 body{
     background-color: black;
     color: white;
+    font-family: Helvetica, Arial, SansSerif;
+    font-size: inherit;
+    background-image: url("http://widewallpaper.info/wp-content/uploads/2016/03/Game-of-thrones-Wallpaper-22.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-header{
-    color: aliceblue;
+.page-header{
+    background-color: azure;
+    color: black;
+}
+
+.jumbotron{
+    color: black;
+    box-shadow: 10px 5px 5px grey;
+}
+
+li a {
+    float: left;
 }
 
 span{
@@ -22,3 +37,4 @@ span{
 input {
     color: black;
 }
+
