@@ -1,40 +1,47 @@
 body{
-    background-color: black;
-    color: white;
+    background-color: white;
     font-family: Helvetica, Arial, SansSerif;
     font-size: inherit;
-    background-image: url("http://widewallpaper.info/wp-content/uploads/2016/03/Game-of-thrones-Wallpaper-22.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.page-header{
-    background-color: azure;
-    color: black;
-}
-
-.jumbotron{
-    color: black;
-    box-shadow: 10px 5px 5px grey;
 }
 
 li a {
     float: left;
 }
 
-span{
-    float: right;
-}
-
-.seperator{
-    padding-left: 1%;
-    padding-right: 1%;
-}
-
-.btn{
-    padding-bottom: 0%;
-}
 input {
+    color: black;
+}
+
+.modal-content{
+    color: black;
+}
+
+.modal-header{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+.jumbotron-carousel{
+    background-color: #b30000;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.navbar{
+    background-color: #b30000;
+    color: black;
+}
+.navbar-brand{
+    float: left;
+}
+.navbar-brand a span{
+    margin-left: 100px;
+}
+.navbar a{
+    color: black;
+}
+
+.carousel-caption{
     color: black;
 }
 
