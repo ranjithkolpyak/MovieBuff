@@ -1,0 +1,46 @@
+body{
+    background-color: white;
+    font-family: Helvetica, Arial, SansSerif;
+    font-size: inherit;
+}
+
+li a {
+    float: left;
+}
+
+input {
+    color: black;
+}
+
+.modal-content{
+    color: black;
+}
+
+.modal-header{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+.jumbotron-carousel{
+    background-color: #222222;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.navbar{
+    color: black;
+}
+.navbar-brand{
+    float: left;
+}
+.navbar-brand a span{
+    margin-left: 100px;
+}
+.navbar a{
+    color: black;
+}
+
+.carousel-caption{
+    color: white;
+}
+
