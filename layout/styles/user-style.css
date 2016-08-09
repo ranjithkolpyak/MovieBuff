@@ -1,0 +1,43 @@
+.jumbotron-carousel{
+    background-color: #b30000;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.carousel-caption{
+    color: black;
+}
+
+div img{
+}
+
+#movies-list{
+    margin: 10px;
+    background-color: black;
+}
+.item{
+    margin: auto;
+}
+
+.navbar{
+    background-color: #b30000;
+    color: black;
+}
+.navbar a{
+    color: black;
+}
+
+.jumbotron{
+
+    box-shadow: 10px 5px 5px grey;
+}
+.movie{
+    width: 100px;
+    height: 200px;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid grey;
+
+}
+.row{
+    margin: 10px;
+}
