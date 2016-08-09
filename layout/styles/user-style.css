@@ -10,6 +10,7 @@
 /*****************************************************************/
 
 .featured-list, .featured-list1{
+    width: 1080px;
     border-radius: 8px;
     margin: 20px auto;
     background: #222;
@@ -93,3 +94,4 @@
 section h4{
     color: white;
 }
+

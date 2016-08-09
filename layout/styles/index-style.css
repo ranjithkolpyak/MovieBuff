@@ -23,12 +23,11 @@ input {
 }
 
 .jumbotron-carousel{
-    background-color: #b30000;
+    background-color: #222222;
     box-shadow: 10px 5px 5px grey;
 }
 
 .navbar{
-    background-color: #b30000;
     color: black;
 }
 .navbar-brand{
@@ -42,6 +41,6 @@ input {
 }
 
 .carousel-caption{
-    color: black;
+    color: white;
 }
 
