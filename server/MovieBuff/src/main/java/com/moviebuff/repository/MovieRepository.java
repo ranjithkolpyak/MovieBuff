@@ -27,7 +27,7 @@ public interface MovieRepository extends MongoRepository<MovieDTO, String>{
 	 * @return
 	 */
 	@Query(value="{?0 : ?1}")
-	public List<MovieDTO> findAllByAttributesIgnoreCase(String type, String anyType);
+	public List<MovieDTO> findAllByAttributesContaining(String type, String anyType);
 	
 	public MovieDTO findById(String movieId);
 	

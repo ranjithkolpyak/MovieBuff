@@ -7,6 +7,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Language;
+import org.springframework.hateoas.ResourceSupport;
 
 /**
  * This entity contains the basic fields of the movie object. 
@@ -14,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Language;
  *
  */
 @Document(collection="movies")
-public class MovieDTO {
+public class MovieDTO extends ResourceSupport{
 	
 	@Id
 	private String id;
@@ -29,7 +30,7 @@ public class MovieDTO {
 	@TextIndexed
 	private String type;
 	private String released;
-	@Language
+	
 	private List<String> lang;
 	@TextIndexed
 	private List<String> genre;

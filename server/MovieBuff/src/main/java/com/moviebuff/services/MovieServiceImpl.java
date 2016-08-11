@@ -24,7 +24,10 @@ public class MovieServiceImpl implements MovieService{
 	public List<MovieDTO> getAllMovies() {
 		return repo.findAll();
 	}
-
+	@Override
+	public MovieDTO getAMovie(String movieId){
+		return repo.findOne(movieId);
+	}
 
 	@Override
 	public List<MovieDTO> getAllMoviesByYear(Integer year) {
@@ -33,7 +36,7 @@ public class MovieServiceImpl implements MovieService{
 	
 	@Override
 	public List<MovieDTO> getMovieByAttributes(String key, String value){
-		return repo.findAllByAttributesIgnoreCase(key, value);
+		return repo.findAllByAttributesContaining(key, value);
 	}
 	
 	
@@ -51,9 +54,8 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public MovieDTO updateMovie(MovieDTO movie, String movieId) {
 		MovieDTO movie1 = repo.findOne(movieId);
-		if(movie1.getMovieId().equals(movieId) && movie.getMovieId().equals(movieId)){
-			repo.save(movie);
-			return movie;
+		if(movie1 != null){
+			return repo.save(movie); 
 		}
 		else
 			//throw new IllegalUpdateException();

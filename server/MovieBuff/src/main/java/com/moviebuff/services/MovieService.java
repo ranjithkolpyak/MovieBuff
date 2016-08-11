@@ -10,7 +10,10 @@ import com.moviebuff.entities.MovieDTO;
  *
  */
 public interface MovieService {
-	/*GET operations*/
+	
+	
+	MovieDTO getAMovie(String movieId);
+	
 	/**
 	 * gives a list of all the movies/tv series
 	 * @return a list of movies in the database

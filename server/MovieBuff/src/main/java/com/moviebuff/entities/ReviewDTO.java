@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="reviews")
-public class ReviewDTO {
+public class ReviewDTO{
 	@Id
 	private String reviewId;
 	
