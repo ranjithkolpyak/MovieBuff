@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
-import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,19 +31,33 @@ public class MovieController {
 	
 	@RequestMapping(method=RequestMethod.GET, path="/where/{key}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<MovieDTO> getMovieBy(@PathVariable("key") String key, @RequestParam(value="value", defaultValue="Movie") String value){
-		return service.getMovieByAttributes(key, value);
+		List<MovieDTO> movies = service.getMovieByAttributes(key, value);
+		for(MovieDTO movie: movies){
+			movie.add(linkTo(MovieController.class).slash(movie.getMovieId()).withSelfRel());
+			movie.add(linkTo(methodOn(ReviewController.class).getReviews(movie.getMovieId())).withRel("review"));
+			movie.add(entityLinks.linkToSingleResource(CommentDTO.class, movie.getMovieId()).withRel("comment"));
+		}
+		return movies;
+		
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="/year/{year}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<MovieDTO> getAllMoviesByYear(@PathVariable("year") Integer year){
-		return service.getAllMoviesByYear(year);
+		List<MovieDTO> movies = service.getAllMoviesByYear(year);
+		for(MovieDTO movie: movies){
+			movie.add(linkTo(MovieController.class).slash(movie.getMovieId()).withSelfRel());
+			movie.add(linkTo(methodOn(ReviewController.class).getReviews(movie.getMovieId())).withRel("review"));
+			movie.add(entityLinks.linkToSingleResource(CommentDTO.class, movie.getMovieId()).withRel("comment"));
+		}
+		return movies;
+		
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path="/{movieId}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public MovieDTO getAMovie(@PathVariable("movieId") String movieId){
 		MovieDTO movie = service.getAMovie(movieId);
-		movie.add(linkTo(methodOn(ReviewController.class).getReviews(movieId)).withRel("review"));
 		movie.add(linkTo(MovieController.class).slash(movieId).withSelfRel());
+		movie.add(linkTo(methodOn(ReviewController.class).getReviews(movieId)).withRel("review"));
 		movie.add(entityLinks.linkToSingleResource(CommentDTO.class, movieId).withRel("comment"));
 		return movie;
 	}
@@ -60,17 +73,22 @@ public class MovieController {
 		return movies;
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method=RequestMethod.POST, path="/add", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public MovieDTO addMovie(@RequestBody MovieDTO movie){
-		return service.addMovie(movie);
+		MovieDTO movieNew = service.addMovie(movie);
+		movieNew.add(linkTo(MovieController.class).slash(movieNew.getMovieId()).withSelfRel());
+		movieNew.add(linkTo(methodOn(ReviewController.class).getReviews(movie.getMovieId())).withRel("review"));
+		movieNew.add(entityLinks.linkToSingleResource(CommentDTO.class, movie.getMovieId()).withRel("comment"));
+		movieNew.add(linkTo(methodOn(CommentController.class).addComment(null)).withRel("comment"));
+		return movieNew;
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, path="/{id}", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method=RequestMethod.PUT, path="/update/{id}", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public MovieDTO updateMovie(@RequestBody MovieDTO movie, @PathVariable("id") String movieId){
 		return service.updateMovie(movie, movieId);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, path="/{id}")
+	@RequestMapping(method=RequestMethod.DELETE, path="/delete/{id}")
 	public void deleteMovie(@PathVariable("id") String movieId){
 		service.deleteMovie(movieId);
 	}

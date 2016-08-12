@@ -7,6 +7,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.hateoas.ResourceSupport;
 
 /**
  * this entity contains the fields related to any user, basic info like name, email, password, 
@@ -16,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 
 @Document(collection="users")
-public class UserDTO {
+public class UserDTO extends ResourceSupport{
 	
 	@Id
 	private String id;

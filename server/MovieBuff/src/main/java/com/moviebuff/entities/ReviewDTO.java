@@ -6,9 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.hateoas.ResourceSupport;
 
 @Document(collection="reviews")
-public class ReviewDTO{
+public class ReviewDTO extends ResourceSupport{
 	@Id
 	private String reviewId;
 	

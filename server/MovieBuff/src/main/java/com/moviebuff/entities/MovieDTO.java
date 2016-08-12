@@ -1,12 +1,10 @@
 package com.moviebuff.entities;
 
 import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Language;
 import org.springframework.hateoas.ResourceSupport;
 
 /**

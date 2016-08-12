@@ -1,6 +1,7 @@
 package com.moviebuff.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.moviebuff.entities.ReviewDTO;
 import com.moviebuff.services.ReviewService;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 @ExposesResourceFor(ReviewDTO.class)
@@ -19,6 +21,9 @@ public class ReviewController {
 	@Autowired
 	ReviewService reviewService;
 	
+	@Autowired
+	EntityLinks entityLinks;
+	
 	/**
 	 * 
 	 * @param movieId
@@ -26,7 +31,9 @@ public class ReviewController {
 	 */
 	@RequestMapping(method=RequestMethod.GET, path="/{movieId}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ReviewDTO getReviews(@PathVariable("movieId") String movieId){
-		return reviewService.getReview(movieId);
+		ReviewDTO review = reviewService.getReview(movieId);
+		review.add(linkTo(ReviewController.class).slash(movieId).slash("add").slash(null).withRel("rating"));
+		return review;
 	}
 	
 	/**

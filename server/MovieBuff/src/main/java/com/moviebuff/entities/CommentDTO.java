@@ -5,7 +5,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="comments")
-public class CommentDTO {
+public class CommentDTO{
 	
 	@Id
 	private String commentId;
