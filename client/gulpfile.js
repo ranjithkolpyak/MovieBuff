@@ -105,7 +105,12 @@ gulp.task('other', function () {
         .pipe(gulp.dest(config.paths.build));
 });
 
-gulp.task('build', ['minifyCss', 'minifyJs', 'htmls', 'fonts', 'other'], function () {
+gulp.task('icons', function() {
+    return gulp.src(config.bower + '/fontawesome/fonts/**.*')
+        .pipe(gulp.dest(config.paths.build));
+});
+
+gulp.task('build', ['minifyCss', 'minifyJs', 'htmls', 'fonts', 'other', 'icons'], function () {
 
     var vendorFiles = gulp.src([
         config.paths.build + '/styles/vendor.min.css',
@@ -122,3 +127,4 @@ gulp.task('build', ['minifyCss', 'minifyJs', 'htmls', 'fonts', 'other'], functio
         .pipe(inject(appFiles, {name: 'app', ignorePath: 'build', addRootSlash: false}))
         .pipe(gulp.dest(config.paths.build));
 });
+
