@@ -23,6 +23,14 @@
                     templateUrl: 'app/views/movies.tpl.html',
                     controller: 'MovieController as mvCtrl'
                 })
+                .state('details', {
+                    url: '/details',
+                    params: {
+                      movieId : null
+                    },
+                    templateUrl: 'app/views/movie-details.tpl.html',
+                    controller: 'MovieDetailController as mvdetails'
+                })
         });
 
 //})();

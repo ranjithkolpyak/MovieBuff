@@ -4,7 +4,7 @@
   angular
     .module('myApp')
     .constant('CONFIG', {
-      'API_HOST': ''
+      'API_HOST': 'http://localhost:8080/MovieBuff/api'
     });
 
 })();

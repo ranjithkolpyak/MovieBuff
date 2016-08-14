@@ -7,10 +7,24 @@
     angular.module('myApp')
         .controller('MovieController', MovieController);
 
-    MovieController.$inject = ['$scope', 'movieService' ];
-    function MovieController($scope, movieService) {
+    MovieController.$inject = ['movieService' ];
+    function MovieController(movieService) {
+
         var movieVm = this;
 
-        console.log('movieController');
+        movieVm.movies = movieService.movies;
+
+        init();
+
+        function init() {
+            movieService.getAllMovies()
+                .then(function (movies) {
+                        movieVm.movies = movies;
+                    },
+                    function (error) {
+                        console.log(error);
+                    });
+            console.log('movieController');
+        }
     }
 })();

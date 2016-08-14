@@ -1,6 +1,11 @@
 <div class="jumbotron">
     <h1>Movie Carousel List</h1>
-    <div ng-repeat="user in mvCtrl.users">
-        <p>{{user.firstName}} {{user.lastName}}</p>
+
+    <div ng-repeat="movie in mvCtrl.movies">
+        <h4>{{movie.name}}</h4>
+        <p>{{mvCtrl.title}}</p>
+        <p>{{movie.cast}} {{movie.genre}}</p>
+        <img ng-src="{{movie.poster}}" style="width: 60px; height: 60px">
+        <a ui-sref="details({movieId : '{{movie.movieId}}'})" class="btn btn-primary btn-sm">Details</a>
     </div>
 </div>
