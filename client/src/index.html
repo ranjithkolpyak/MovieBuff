@@ -36,9 +36,9 @@
                     <ul uib-dropdown-menu>
                         <li><a ui-sref="topRated">Top Rated</a> </li>
                         <li><a ui-sref="latest">Latest</a> </li>
-                        <li uib-dropdown>
-                            <a class="uib-dropdown-toggle">Genre <span class="caret"></span></a>
-                            <ul class="uib-dropdown-menu">
+                        <li uib-dropdown is-open="false" auto-close dropdown-append-to-body>
+                            <a uib-dropdown-toggle>Genre <span class="caret"></span></a>
+                            <ul uib-dropdown-menu>
                                 <li><a ui-sref="action">Action</a> </li>
                                 <li><a ui-sref="comedy">Comedy</a> </li>
                                 <li><a ui-sref="horror">Horror</a> </li>
@@ -59,12 +59,12 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="profile">Profile</a> </li>
-                        <li><a href="settings">Settings</a> </li>
-                        <li><a href="logout">Logout <i class="fa fa-sign-out"></i></span></a></li>
+                <li uib-dropdown>
+                    <a uib-dropdown-toggle><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                    <ul uib-dropdown-menu>
+                        <li><a ui-sref="profile">Profile</a> </li>
+                        <li><a ui-sref="settings">Settings</a> </li>
+                        <li><a ui-sref="logout">Logout <i class="fa fa-sign-out"></i></span></a></li>
                     </ul>
                 </li>
             </ul>
