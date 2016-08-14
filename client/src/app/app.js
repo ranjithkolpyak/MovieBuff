@@ -11,12 +11,17 @@
         .module('myApp', ['angular-jwt', 'ngMaterial', 'angular-storage','ui.router', 'ui.bootstrap'])
         .config(function ($urlRouterProvider, $stateProvider){
 
-
+            $urlRouterProvider.otherwise('/home');
 
             $stateProvider
                 .state('home', {
                     url: '/home',
-                    templateUrl: 'app/views/home.tpl.html',
+                    templateUrl: 'app/views/home.tpl.html'
+                })
+                .state('movies', {
+                    url: '/movies',
+                    templateUrl: 'app/views/movies.tpl.html',
+                    controller: 'MovieController as mvCtrl'
                 })
         });
 
