@@ -45,14 +45,29 @@
                 controllerAs: 'commentVm'
             })
             .when('/search',{
-                templateUrl: '',
+                templateUrl: 'app/views/moviesearch.tpl.html',
                 controller: 'MoviesSearchController',
                 controllerAs: 'searchVm'
             })
-            .when('/user/:userName',{
-                templateUrl: 'user.tpl.html',
-                controller: 'UserController',
-                controllerAs: 'userVm'
+            // .when('/user/:userName',{
+            //     templateUrl: 'user.tpl.html',
+            //     controller: 'UserController',
+            //     controllerAs: 'userVm'
+            // })
+            .when('/addreview/:movieId', {
+                templateUrl: 'app/views/addreview.tpl.html',
+                controller: 'AddReviewController',
+                controllerAs: 'addReviewVm'
+            })
+            .when('/addmovie',{
+                templateUrl: 'app/views/addmovie.tpl.html',
+                controller: 'AddMovieController',
+                controllerAs: 'addMovieVm'
+            })
+            .when('/register',{
+                templateUrl: '',
+                controller: '',
+                controllerAs: 'resgisterVm'
             })
             .otherwise(
                 {redirectTo: '/home'}

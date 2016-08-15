@@ -26,7 +26,7 @@
 
         //the comment here is just a string convert it to a comment object
         function addComment(comment) {
-            return $http.post(CONFIG.API_HOST + '/comments/' + id, comment);
+            return $http.post(CONFIG.API_HOST + '/comments/add', comment);
         }
 
         function successFn(response) {

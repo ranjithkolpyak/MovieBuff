@@ -8,14 +8,18 @@
     angular.module('myApp')
         .controller('MovieDetailController', MovieDetailController);
 
-    MovieDetailController.$inject = ['movieService', '$routeParams', 'reviewService', 'commentService'];
-    function MovieDetailController(movieService, $routeParams, reviewService, commentService) {
+    MovieDetailController.$inject = ['movieService', '$routeParams', 'reviewService', 'commentService', '$location'];
+    function MovieDetailController(movieService, $routeParams, reviewService, commentService, $location) {
 
         var movieDetailsVm = this;
+
+        movieDetailsVm.addComment = addComment;
+
 
         init();
 
         function init() {
+
             console.log('MovieDetailController');
             movieService.getMovieDetails($routeParams.id)
                 .then(function (movies) {
@@ -37,7 +41,20 @@
                 },
                 function (error) {
                     console.log(error);
-                })
+                });
+        }
+
+        function addComment() {
+            console.log('adding comment'+ $routeParams.id);
+            movieDetailsVm.newComment.movieId = $routeParams.id;
+            commentService
+                .addComment(movieDetailsVm.newComment)
+                .then(function (response) {
+                    $location.path('/movies');
+                },
+                function (error) {
+                    console.log(error);
+                });
         }
     }
 })();

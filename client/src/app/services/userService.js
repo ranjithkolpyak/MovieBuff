@@ -20,7 +20,12 @@
         
         function getUser(userName) {
             return $http.get(CONFIG.API_HOST + '/user'+ userName)
-                .then(successFn, errorFn)
+                .then(successFn, errorFn);
+        }
+        
+        function createUser(user) {
+            return $http.post(CONFIG.API_HOST + '/user/add', user)
+                .then(successFn, errorFn);
         }
         
         function successFn(response) {

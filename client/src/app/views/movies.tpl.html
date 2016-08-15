@@ -2,6 +2,7 @@
     <div class="jumbotron">
         <input class="form-control " type="text" placeholder="Search" ng-model="movieVm.searchText">
         <h3>New Movies List</h3>
+
         <div ng-repeat="movie in movieVm.movies | filter: movieVm.searchText">
             <div class="row">
                 <div class="col-sm-6 col-md-4 ">

@@ -16,9 +16,17 @@
 
         selfService.getReviewByMovieId = getReviewByMovieId;
 
+        selfService.addReview = addReview;
+
         function getReviewByMovieId(id) {
             console.log('ReviewService'+id);
             return $http.get(CONFIG.API_HOST + '/reviews/'+ id)
+                .then(successFn, errorFn);
+        }
+
+        function addReview(review) {
+            console.log('ReviewService');
+            return $http.post(CONFIG.API_HOST + '/reviews/add', review)
                 .then(successFn, errorFn);
         }
 

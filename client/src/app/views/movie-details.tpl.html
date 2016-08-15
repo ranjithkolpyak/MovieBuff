@@ -1,65 +1,50 @@
 <div class="jumbotron">
     <h6><a ng-href="#/movies" class="btn btn-info btn-xs">Back to movies</a></h6>
-    <!--<div>-->
-        <!--<h3>{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}}</small></h3>-->
-        <!--<div ng-repeat="genre in movieDetailsVm.movie.genre">-->
-            <!--<p>{{genre}}</p>-->
-        <!--</div>-->
-        <!--<div>-->
-            <!--<p>{{movieDetailsVm.movie.released}}</p>-->
-            <!--<p>{{movieDetailsVm.movie.runTime}}</p>-->
-        <!--</div>-->
-        <!--<img ng-src="{{movieDetailsVm.movie.poster}}" style="float: right; width: 200px; height: 200px; margin-right: 50px; margin-top: -120px">-->
-        <!--<div class="container">{{movieDetailsVm.movie.plot}}</div>-->
-    <!--</div>-->
-
-    <div class="media">
-        <div class="media-left">
-            <a ng-href="{{movieDetailsVm.movie.poster}}">
-                <img class="media-object" ng-src="{{movieDetailsVm.movie.poster}}" style="width: 300px; height: 300px">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}}</small></h2>
-                <p>{{movieDetailsVm.movie.genre}}</p>
-                <div class="container">
-                    {{movieDetailsVm.movie.plot}}
-                </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>Awards: {{movieDetailsVm.review.awards}}</p>
-                    <p>IMDB Rating: {{movieDetailsVm.review.imdbRating}}</p>
-                    <p>IMDB Votes: {{movieDetailsVm.review.imdbVotes}}</p>
-                    <p>IMDB MetaScore: {{movieDetailsVm.review.imdbRating}}</p>
-                </div>
+    <div class="well well-lg">
+        <div class="media">
+            <div class="media-left">
+                <a ng-href="{{movieDetailsVm.movie.poster}}">
+                    <img class="media-object" ng-src="{{movieDetailsVm.movie.poster}}" style="width: 300px; height: 300px">
+                </a>
+            </div>
+            <div class="media-body">
+                <h2 class="media-heading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}}</small></h2>
+                <span ng-repeat="genre in movieDetailsVm.movie.genre">{{genre}} </span>
+                <p>{{movieDetailsVm.movie.plot}}</p>
             </div>
         </div>
     </div>
 
-            <div class="h-divider"></div>
-            <div>
-                <div>
-                    <h5>Reviews</h5>
-                    <p>{{movieDetailsVm.review.awards}}</p>
-                    <p>{{movieDetailsVm.review.imdbRating}}</p>
+    <div class="well well-lg review">
+        <h3>Reviews</h3>
+        <span>
+            <a ng-href="#/addreview/{{movieDetailsVm.movie.movieId}}" class="btn btn-info btn-sm">Add</a>
+            <a ng-href="#/addreview" class="btn btn-info btn-sm">Edit</a>
+        </span>
+        <p>Awards: {{movieDetailsVm.review.awards}}</p>
+        <p>IMBD Rating: {{movieDetailsVm.review.imdbRating}}</p>
+        <p>IMDB Votes: {{movieDetailsVm.review.imdbVotes}}</p>
+        <p ng-if="movieDetailsVm.review.imdbMetaScore">IMDB MetaScore{{movieDetailsVm.review.imdbMetaScore}}</p>
+    </div>
+
+    <div class="well well-lg">
+        <h3>Comments</h3>
+        <div ng-repeat="commentObj in movieDetailsVm.comments">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{commentObj.author}}</h3>
                 </div>
-            </div>
-            <div>
-                <h5>Comments</h5>
-                <div ng-repeat="commentObj in movieDetailsVm.comments">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{commentObj.author}}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>{{commentObj.comment}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <input class="form-control col-sm-4" type="text" placeholder="Name" name="author">
-                    <textarea class="form-control" rows="3" ng-model="movieDetailsVm.newComments.comment"></textarea>
-                    <button class="btn btn-info btn-sm" type="submit" style="float: right">Comment</button>
+                <div class="panel-body">
+                    <p>{{commentObj.comment}}</p>
                 </div>
             </div>
         </div>
+        <div>
+            <form role="form" ng-submit="movieDetailsVm.addComment()">
+                <input class="form-control col-sm-4" type="text" placeholder="Name" name="author" ng-model="movieDetailsVm.newComment.author">
+                <textarea class="form-control commentArea" rows="3" ng-model="movieDetailsVm.newComment.comment" placeholder="Comment Here...."></textarea>
+                <button class="btn btn-info btn-sm" type="submit" style="float: right" >Comment</button>
+            </form>
+        </div>
+    </div>
+</div>
