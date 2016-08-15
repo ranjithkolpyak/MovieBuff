@@ -1,0 +1,15 @@
+.movieThumbnail{
+    float: left;
+}
+
+img{
+    width: 200px;
+    height: 100px;
+}
+/*span{*/
+    /*float: left;*/
+/*}*/
+
+p{
+    font-size: 12px;
+}
