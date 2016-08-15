@@ -54,10 +54,6 @@
                 controller: 'UserController',
                 controllerAs: 'userVm'
             })
-            .when('/login',{
-                controller: 'LoginController',
-                controllerAs: 'loginVm'
-            })
             .otherwise(
                 {redirectTo: '/home'}
             );
