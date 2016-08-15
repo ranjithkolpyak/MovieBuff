@@ -1,0 +1,8 @@
+<div class="jumbotron">
+    <h6><a ng-href="#/movies" class="btn btn-info btn-xs">Back to movies</a></h6>
+    <div>
+        <p>{{reviewVm.review.awards}}</p>
+        <p>{{reviewVm.review.imdbRating}}</p>
+        <a ng-href="#/comments/{{reviewVm.review.movieId}}" class="btn btn-primary btn-sm">Review</a>
+    </div>
+</div>
