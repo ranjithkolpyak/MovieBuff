@@ -13,11 +13,11 @@
     "bootstrap": "^3.3.7",
     "angular-messages": "^1.5.8",
     "angular-bootstrap": "^2.0.1",
-    "angular-material": "^1.0.9",
     "angular-jwt": "^0.0.9",
     "angular-storage": "^0.5.0",
-    "angular-ui-router": "^0.3.1",
-    "font-awesome": "fontawesome#^4.6.3"
+    "angular-route": "^1.5.8",
+    "auth0-angular": "^4.2.3",
+    "auth0-lock": "^9.0.0"
   },
   "overrides": {
     "bootstrap": {
@@ -32,16 +32,6 @@
     },
     "jquery": {
       "main": []
-    },
-    "fontawesome":{
-      "main": [
-        "css/font-awesome.css",
-        "fonts/fontawesome-webfont.eot",
-        "fonts/fontawesome-webfont.svg",
-        "fonts/fontawesome-webfont.ttf",
-        "fonts/fontawesome-webfont.woff",
-        "fonts/fontawesome-webfont.woff2"
-      ]
     }
   },
   "resolutions": {

@@ -8,24 +8,22 @@
     angular.module('myApp')
         .controller('MovieDetailController', MovieDetailController);
 
-    MovieDetailController.$inject = ['movieService' ];
-    function MovieDetailController(movieService) {
+    MovieDetailController.$inject = ['movieService', '$routeParams'];
+    function MovieDetailController(movieService, $routeParams) {
 
         var movieDetailsVm = this;
-
-        movieDetailsVm.movies = movieService.movies;
 
         init();
 
         function init() {
-            movieService.getMovieDetails()
+            console.log('MovieDetailController');
+            movieService.getMovieDetails($routeParams.id)
                 .then(function (movies) {
                         movieDetailsVm.movie = movies;
                     },
                     function (error) {
                         console.log(error);
                     });
-            console.log('MovieDetailController');
         }
     }
 })();

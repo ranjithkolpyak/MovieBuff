@@ -1,18 +1,18 @@
 /**
  * Created by ranjithreddy on 8/13/16.
  */
+
+
 (function () {
     'use strict';
 
     angular.module('myApp')
         .service('movieService', movieService);
 
-    movieService.$inject = ['$http', 'CONFIG', '$q', '$stateParams'];
-    function movieService($http, CONFIG, $q, $stateParams) {
+    movieService.$inject = ['$http', 'CONFIG', '$q'];
+    function movieService($http, CONFIG, $q) {
 
      var selfService = this;
-
-        selfService.movies = [];
         
         selfService.getAllMovies = getAllMovies;
 
@@ -25,13 +25,13 @@
                 .then(successFn, errorFn);
         }
 
-        function getMovieDetails() {
-            return $http.get(CONFIG.API_HOST + '/movie/' + $stateParams.movieId)
+        function getMovieDetails(id) {
+            return $http.get(CONFIG.API_HOST + '/movie/' + id)
                 .then(successFn, errorFn)
         }
 
-        function getMoviesBySearch() {
-            return $http.get(CONFIG.API_HOST + '/movie/' + $stateParams.movieId)
+        function getMoviesBySearch(key, value) {
+            return $http.get(CONFIG.API_HOST + '/movie/where/'+key+'?value='+value)
                 .then(successFn, errorFn)
         }
 

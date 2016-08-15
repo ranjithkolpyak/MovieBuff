@@ -1,11 +1,10 @@
 <div class="jumbotron">
-    <h1>Movie Carousel List</h1>
-
-    <div ng-repeat="movie in mvCtrl.movies">
+    <h1>Movie List</h1>
+    <input class="form-control " type="text" placeholder="Search" ng-model="movieVm.searchText">
+    <div ng-repeat="movie in movieVm.movies | filter : movieVm.searchText ">
         <h4>{{movie.name}}</h4>
-        <p>{{mvCtrl.title}}</p>
         <p>{{movie.cast}} {{movie.genre}}</p>
         <img ng-src="{{movie.poster}}" style="width: 60px; height: 60px">
-        <a ui-sref="details({movieId : '{{movie.movieId}}'})" class="btn btn-primary btn-sm">Details</a>
+        <a ng-href="#/details/{{movie.movieId}}" class="btn btn-default">Details</a>
     </div>
 </div>
