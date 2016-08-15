@@ -12,11 +12,12 @@
 
         var movieVm = this;
 
-        movieVm.movies = movieService.movies;
-
         init();
 
         function init() {
+
+            console.log("MovieController");
+
             movieService.getAllMovies()
                 .then(function (movies) {
                         movieVm.movies = movies;
