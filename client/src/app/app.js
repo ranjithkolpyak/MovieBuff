@@ -69,6 +69,11 @@
                 controller: 'RegisterController',
                 controllerAs: 'registerVm'
             })
+            .when('/update/:movieId',{
+                templateUrl: 'app/views/updatemovie.tpl.html',
+                controller: 'UpdateMovieController',
+                controllerAs: 'updateVm'
+            })
             .otherwise(
                 {redirectTo: '/home'}
             );

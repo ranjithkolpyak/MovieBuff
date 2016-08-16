@@ -21,6 +21,8 @@
         selfService.getMoviesBySearch = getMoviesBySearch;
 
         selfService.addMovie = addMovie;
+
+        selfService.updateMovie = updateMovie;
         
         function getAllMovies() {
             return $http.get(CONFIG.API_HOST + '/movie')
@@ -39,6 +41,11 @@
 
         function addMovie(movie) {
             return $http.post(CONFIG.API_HOST + '/movie/add', movie)
+                .then(successFn, errorFn)
+        }
+
+        function updateMovie(movie, id) {
+            return $http.put(CONFIG.API_HOST + '/movie/update/'+id, movie)
                 .then(successFn, errorFn)
         }
 

@@ -8,8 +8,8 @@
     angular.module('myApp')
         .controller('AddMovieController', AddMovieController);
 
-    AddMovieController.$inject = ['movieService', '$routeParams'];
-    function AddMovieController(movieService, $routeParams) {
+    AddMovieController.$inject = ['movieService', '$routeParams', '$location'];
+    function AddMovieController(movieService, $routeParams, $location) {
 
         var addMovieVm = this;
         addMovieVm.addMovie = addMovie;

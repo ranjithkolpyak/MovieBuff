@@ -17,9 +17,16 @@
 
         user.getUser = getUser;
         user.createUser = createUser;
+        user.authUser = authUser;
         
         function getUser(userName) {
+            console.log('came to service layer');
             return $http.get(CONFIG.API_HOST + '/user'+ userName)
+                .then(successFn, errorFn);
+        }
+
+        function authUser(person){
+            return $http.post(CONFIG.API_HOST + '/user/login', person)
                 .then(successFn, errorFn);
         }
         
