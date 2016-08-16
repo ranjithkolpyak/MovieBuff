@@ -11,6 +11,7 @@
     function MovieController(movieService) {
 
         var movieVm = this;
+        movieVm.profile = JSON.parse(localStorage.getItem('profile'));
 
         init();
 

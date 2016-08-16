@@ -12,8 +12,8 @@
                             <h3>{{movie.name}}</h3>
                             <span ng-repeat="genre in movie.genre"> {{genre}} </span>
                             <p><a ng-href="#/details/{{movie.movieId}}" class="btn btn-info btn-sm" role="button">More Info</a></p>
-                            <p><a ng-href="#/update/{{movie.movieId}}" class="btn btn-info btn-sm" role="button">Edit</a>
-                            <a ng-href="#/delete/{{movie.movieId}}" class="btn btn-info btn-sm" role="button">Delete</a></p>
+                            <p><a ng-href="#/update/{{movie.movieId}}" class="btn btn-info btn-sm" role="button" ng-if= movieVm.profile.app_metadata.admin>Edit</a>
+                            <a ng-href="#/delete/movie/{{movie.movieId}}" class="btn btn-info btn-sm" role="button" ng-if= movieVm.profile.app_metadata.admin>Delete</a></p>
                         </div>
                     </div>
                 </div>

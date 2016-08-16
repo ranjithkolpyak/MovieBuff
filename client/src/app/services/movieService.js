@@ -23,6 +23,7 @@
         selfService.addMovie = addMovie;
 
         selfService.updateMovie = updateMovie;
+        selfService.removeMovie = removeMovie;
         
         function getAllMovies() {
             return $http.get(CONFIG.API_HOST + '/movie')
@@ -46,6 +47,11 @@
 
         function updateMovie(movie, id) {
             return $http.put(CONFIG.API_HOST + '/movie/update/'+id, movie)
+                .then(successFn, errorFn)
+        }
+
+        function removeMovie(id) {
+            return $http.delete(CONFIG.API_HOST + '/movie/delete'+id)
                 .then(successFn, errorFn)
         }
 

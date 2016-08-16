@@ -72,8 +72,13 @@
             .when('/update/:movieId',{
                 templateUrl: 'app/views/updatemovie.tpl.html',
                 controller: 'UpdateMovieController',
-                controllerAs: 'updateVm'
+                controllerAs: 'updateMovieVm'
             })
+            // .when('/delete/movie/:movieId',{
+            //
+            //     controller: 'DeleteMovieController',
+            //     controllerAs: 'deleteMovieVm'
+            // })
             .otherwise(
                 {redirectTo: '/home'}
             );

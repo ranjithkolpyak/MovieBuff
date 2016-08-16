@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<div class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#/home">
@@ -15,7 +15,7 @@
                 </ul>
             </li>
             <li>
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" role="search" ng-if="toolbarVm.auth.isAuthenticated">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>

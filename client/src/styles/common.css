@@ -10,6 +10,11 @@ body {
     float: left;
 }
 
+.jumbotron{
+    background-color: #222222;
+    color: white;
+}
+
 img{
     width: 200px;
     height: 100px;
@@ -27,6 +32,10 @@ p{
     height: 40px;
     padding: 8px 15px;
     margin: 0px;
+}
+
+.editMovie .form-control{
+    width: 85%;
 }
 
 button, textarea, input{

@@ -12,13 +12,14 @@
     function UpdateMovieController(movieService, $routeParams, $location) {
 
         var updateMovieVm = this;
-        updateMovieVm.updateMovie = updateMovie;
+        updateMovieVm.editMovie = editMovie;
         init();
 
         function init() {
             movieService.getMovieDetails($routeParams.movieId)
                 .then(function (response) {
                     updateMovieVm.newMovie = response;
+                    console.log(updateMovieVm.newMovie);
                 },
                 function (error) {
                     console.log(error)
@@ -26,7 +27,8 @@
 
         }
 
-        function updateMovie() {
+        function editMovie() {
+            updateMovieVm.newMovie.genre = StringtoArray(updateMovieVm.newMovie.genre);
             movieService.updateMovie(updateMovieVm.newMovie, $routeParams.movieId)
                 .then(function (response) {
                         $location.path('/movies');
@@ -36,8 +38,9 @@
                     });
         }
 
-        function StringtoArray(string) {
-            var arr = string.split(",");
+        function StringtoArray(str) {
+            var arr = str.split(",");
+            console.log(arr);
             return arr;
         }
     }

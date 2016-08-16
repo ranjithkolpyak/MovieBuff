@@ -1,66 +1,66 @@
 <div class="container">
-    <div class="jumbotron">
-        <form role="form" ng-submit="updateMovieVm.updateMovie()">
-            <div class="form-group">
+    <div class="jumbotron row editMovie">
+        <form role="form" ng-submit="updateMovieVm.editMovie()">
+            <div class="form-group col-lg-6">
                 <label for="name">Movie Name</label>
-                <input type="text" class="form-control" id="name" ng-value="updateMovieVm.newMovie.name">
+                <input type="text" class="form-control" id="name" ng-value="updateMovieVm.newMovie.name" ng-model="updateMovieVm.newMovie.name">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="year">Year Released</label>
-                <input type="text" class="form-control" id="year" ng-value="updateMovieVm.newMovie.year">
+                <input type="text" class="form-control" id="year" ng-value="updateMovieVm.newMovie.year" ng-model="updateMovieVm.newMovie.year">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="rated">Rated</label>
-                <input type="text" class="form-control" id="rated" ng-value="updateMovieVm.newMovie.rated">
+                <input type="text" class="form-control" id="rated" ng-value="updateMovieVm.newMovie.rated" ng-model="updateMovieVm.newMovie.rated">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="runTime">Run Time</label>
-                <input type="text" class="form-control" id="runTime" ng-value="updateMovieVm.newMovie.runTime">
+                <input type="text" class="form-control" id="runTime" ng-value="updateMovieVm.newMovie.runTime" ng-model="updateMovieVm.newMovie.runTime">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="type">Type | Movie/Series</label>
-                <input type="text" class="form-control" id="type" ng-value="updateMovieVm.newMovie.type">
+                <input type="text" class="form-control" id="type" ng-value="updateMovieVm.newMovie.type" ng-model="updateMovieVm.newMovie.type">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="released">Release Date</label>
-                <input type="text" class="form-control" id="released" ng-value="updateMovieVm.newMovie.released">
+                <input type="text" class="form-control" id="released" ng-value="updateMovieVm.newMovie.released" ng-model="updateMovieVm.newMovie.released">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="language">Languages Available</label>
-                <input type="text" class="form-control" id="language" ng-value="updateMovieVm.newMovie.lang">
+                <input type="text" class="form-control" id="language" ng-value="updateMovieVm.newMovie.lang" ng-model="updateMovieVm.newMovie.lang">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="genre">Genre</label>
-                <input type="text" class="form-control" id="genre" ng-value="updateMovieVm.newMovie.genre">
+                <input type="text" class="form-control" id="genre" ng-value="updateMovieVm.newMovie.genre" ng-model="updateMovieVm.newMovie.genre">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" ng-value="updateMovieVm.newMovie.country">
+                <input type="text" class="form-control" id="country" ng-value="updateMovieVm.newMovie.country" ng-model="updateMovieVm.newMovie.country">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="director">Director</label>
-                <input type="text" class="form-control" id="director" ng-value="updateMovieVm.newMovie.director">
+                <input type="text" class="form-control" id="director" ng-value="updateMovieVm.newMovie.director" ng-model="updateMovieVm.newMovie.director">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="writer">Writer</label>
-                <input type="text" class="form-control" id="writer" ng-value="updateMovieVm.newMovie.writer">
+                <input type="text" class="form-control" id="writer" ng-value="updateMovieVm.newMovie.writer" ng-model="updateMovieVm.newMovie.writer">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="cast">Cast</label>
-                <input type="text" class="form-control" id="cast" ng-value="updateMovieVm.newMovie.cast">
+                <input type="text" class="form-control" id="cast" ng-value="updateMovieVm.newMovie.cast" ng-model="updateMovieVm.newMovie.cast">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <label for="plot">Plot</label>
-                <input type="text" class="form-control" id="plot" ng-value="updateMovieVm.newMovie.plot">
+                <input type="text" class="form-control" id="plot" ng-value="updateMovieVm.newMovie.plot" ng-model="updateMovieVm.newMovie.plot">
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6" >
                 <label for="poster">Poster Link</label>
-                <input type="url" class="form-control" id="poster" ng-value="updateMovieVm.newMovie.poster">
+                <input type="url" class="form-control" id="poster" ng-value="updateMovieVm.newMovie.poster" ng-model="updateMovieVm.newMovie.poster">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-lg-6">
                 <a ng-href="#home" class="btn btn-danger btn-sm">Cancel</a>
-                <button type="submit" class="btn btn-info btn-sm">Add Movie</button>
+                <button type="submit" class="btn btn-info btn-sm" style="margin: auto">Update</button>
             </div>
         </form>
     </div>

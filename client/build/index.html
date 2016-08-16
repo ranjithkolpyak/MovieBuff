@@ -18,50 +18,12 @@
     <!-- endinject -->
 </head>
 <body>
+    <toolbar> </toolbar>
 
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" ng-href="#/home">MovieBuff</a>
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".headerCollapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+    <div class="container" ng-view>
 
-        <div class="collapse navbar-collapse headerCollapse">
-            <ul class="nav navbar-nav">
-                <li><a ng-href="#/home">Home</a></li>
-                <li uib-dropdown is-open="false" auto-close dropdown-append-to-body>
-                    <a uib-dropdown-toggle>Browse<span class="caret"></span></a>
-                    <ul uib-dropdown-menu>
-                        <li><a ng-href="#/movies">Movies</a> </li>
-                        <li><a ng-href="#/topRated">Top Rated</a> </li>
-                        <li><a ng-href="#/latest">Latest</a> </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a ng-href="#/login">Login</a></li>
-                <li uib-dropdown>
-                    <a uib-dropdown-toggle><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
-                    <ul uib-dropdown-menu>
-                        <li><a ng-href="#/profile">Profile</a> </li>
-                        <li><a ng-href="#/settings">Settings</a> </li>
-                        <li><a ng-href="#/logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
     </div>
-</nav>
-    <div class="container">
 
-        <div class="container" ng-view>
-
-        </div>
-    </div>
 
 
 
@@ -87,13 +49,19 @@
 <script src="app/services/reviewService.js"></script>
 <script src="app/services/movieService.js"></script>
 <script src="app/services/commentService.js"></script>
+<script src="app/directives/toolbar.dir.js"></script>
 <script src="app/controllers/user.controller.js"></script>
+<script src="app/controllers/updatemovie.controller.js"></script>
+<script src="app/controllers/toolbar.controller.js"></script>
 <script src="app/controllers/review.controller.js"></script>
+<script src="app/controllers/register.controller.js"></script>
 <script src="app/controllers/moviesList.controller.js"></script>
 <script src="app/controllers/movie.controller.js"></script>
 <script src="app/controllers/movie-search.controller.js"></script>
-<script src="app/controllers/login.controller.js"></script>
+<script src="app/controllers/deletemovie.controller.js"></script>
 <script src="app/controllers/comment.controller.js"></script>
+<script src="app/controllers/addreview.controller.js"></script>
+<script src="app/controllers/addmovie.controller.js"></script>
 <script src="app/app.constant.js"></script>
 <!-- endinject -->
 
