@@ -12,8 +12,8 @@
         .config(moduleConfig)
         .run(moduleRun);
 
-    moduleConfig.$inject = ['$routeProvider', 'authProvider'];
-    function moduleConfig($routeProvider, authProvider) {
+    moduleConfig.$inject = ['$routeProvider', 'authProvider', '$provide', '$httpProvider', 'jwtInterceptorProvider'];
+    function moduleConfig($routeProvider, authProvider, $provide, $httpProvider, jwtInterceptorProvider) {
 
         authProvider.init({
             domain: 'moviebuff.auth0.com',
@@ -49,10 +49,10 @@
                 controller: 'MoviesSearchController',
                 controllerAs: 'searchVm'
             })
-            // .when('/user/:userName',{
-            //     templateUrl: 'user.tpl.html',
-            //     controller: 'UserController',
-            //     controllerAs: 'userVm'
+            // .when('/login/',{
+            //     templateUrl: 'app/views/login.tpl.html',
+            //     controller: 'LoginController',
+            //     controllerAs: 'loginVm'
             // })
             .when('/addreview/:movieId', {
                 templateUrl: 'app/views/addreview.tpl.html',
@@ -65,17 +65,31 @@
                 controllerAs: 'addMovieVm'
             })
             .when('/register',{
-                templateUrl: '',
-                controller: '',
-                controllerAs: 'resgisterVm'
+                templateUrl: 'app/views/register.tpl.html',
+                controller: 'RegisterController',
+                controllerAs: 'registerVm'
             })
             .otherwise(
                 {redirectTo: '/home'}
             );
     }
 
-    moduleRun.$inject = [];
-    function moduleRun() {
+    moduleRun.$inject = ['$rootScope', 'auth', 'jwtHelper', '$location'];
+    function moduleRun($rootScope, auth, jwtHelper, $location) {
 
+        $rootScope.$on('$locationChangeStart', function () {
+            var token = localStorage.getItem('tokenId');
+
+            if(token){
+                if(!jwtHelper.isTokenExpired(token)) {
+                    if (!auth.isAuthenticated) {
+                        auth.authenticate(localStorage.getItem('profile'), token);
+                    }
+                }
+            }
+            else {
+                $location.path('/home');
+            }
+        })
     }
 })();
