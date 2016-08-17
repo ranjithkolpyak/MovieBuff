@@ -119,3 +119,22 @@ textarea{
     top:15px;
     left: 10px;
 }
+
+.addMovieButton, .updateMovieButton{
+    position: absolute;
+    left: 125px;
+    bottom: 0px;
+}
+
+.rating label{
+    position: absolute;
+    bottom: 81px;
+    right: 365px;
+}
+
+.ratingSelect{
+    width: 5%;
+    position: absolute;
+    bottom: 62px;
+    right: 300px;
+}

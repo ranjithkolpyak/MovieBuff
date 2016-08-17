@@ -17,6 +17,8 @@
 
         movieDetailsVm.deleteComment = deleteComment;
 
+        movieDetailsVm.addRating = addRating;
+
         movieDetailsVm.profile = JSON.parse(localStorage.getItem('profile'));
 
         init();
@@ -48,10 +50,21 @@
         function addComment() {
             movieDetailsVm.newComment.movieId = $routeParams.id;
             movieDetailsVm.newComment.author = movieDetailsVm.profile.user_metadata.firstName;
+            addRating();
             commentService
                 .addComment(movieDetailsVm.newComment)
                 .then(function (response) {
                     $route.reload();
+                },
+                function (error) {
+                    console.log(error);
+                });
+        }
+
+        function addRating() {
+            reviewService.addRating($routeParams.id, movieDetailsVm.rating)
+                .then(function (response) {
+                    console.log('added rating');
                 },
                 function (error) {
                     console.log(error);
