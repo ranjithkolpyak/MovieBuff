@@ -19,6 +19,8 @@
 
         cmtService.addComment = addComment;
 
+        cmtService.removeComment = removeComment;
+
         function getComments(id){
             return $http.get(CONFIG.API_HOST + '/comments/' + id)
                 .then(successFn, errorFn);
@@ -26,7 +28,14 @@
 
         //the comment here is just a string convert it to a comment object
         function addComment(comment) {
-            return $http.post(CONFIG.API_HOST + '/comments/add', comment);
+            return $http.post(CONFIG.API_HOST + '/comments/add', comment)
+                .then(successFn, errorFn);
+        }
+
+        function removeComment(id) {
+            console.log("in service " +id);
+            return $http.delete(CONFIG.API_HOST + '/comments/delete/'+id)
+                .then(successFn, errorFn);
         }
 
         function successFn(response) {

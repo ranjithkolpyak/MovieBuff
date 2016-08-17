@@ -8,13 +8,16 @@
     angular.module('myApp')
         .controller('MovieDetailController', MovieDetailController);
 
-    MovieDetailController.$inject = ['movieService', '$routeParams', 'reviewService', 'commentService', '$location'];
-    function MovieDetailController(movieService, $routeParams, reviewService, commentService, $location) {
+    MovieDetailController.$inject = ['movieService', '$routeParams', 'reviewService', 'commentService', '$location', '$route'];
+    function MovieDetailController(movieService, $routeParams, reviewService, commentService, $location, $route) {
 
         var movieDetailsVm = this;
 
         movieDetailsVm.addComment = addComment;
 
+        movieDetailsVm.deleteComment = deleteComment;
+
+        movieDetailsVm.profile = JSON.parse(localStorage.getItem('profile'));
 
         init();
 
@@ -45,16 +48,29 @@
         }
 
         function addComment() {
-            console.log('adding comment'+ $routeParams.id);
             movieDetailsVm.newComment.movieId = $routeParams.id;
+            movieDetailsVm.newComment.author = movieDetailsVm.profile.user_metadata.firstName;
             commentService
                 .addComment(movieDetailsVm.newComment)
                 .then(function (response) {
-                    $location.path('/movies');
+                    $route.reload();
                 },
                 function (error) {
                     console.log(error);
                 });
+        }
+
+        function deleteComment(id) {
+            console.log('deleting the comment'+id);
+            console.log($routeParams.id);
+            commentService.removeComment(id)
+                .then(function (response) {
+                    console.log('successful');
+                    $route.reload();
+                },
+                function (error) {
+                    console.log(error);
+                })
         }
     }
 })();
