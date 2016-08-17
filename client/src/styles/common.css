@@ -13,10 +13,12 @@ body {
 .jumbotron{
     background-color: #222222;
     color: white;
+    position: relative;
 }
 
 .jumbotron .well{
     color: black;
+    position: relative;
 }
 
 img{
@@ -39,7 +41,7 @@ p{
     margin: 0px;
 }
 
-.editMovie .form-control{
+.editMovie .form-control, .addMovie .form-control{
     width: 85%;
 }
 
@@ -59,6 +61,16 @@ textarea{
 .jumbotron p{
     font-size: 15px;
     margin-bottom: 15px;
+    /*position: relative;*/
+}
+
+.addMovieBTN{
+    position: absolute;
+    top: 49px;
+    right: 100px;
+    width: 8%;
+    height: 40px;
+    padding: 10px;
 }
 
 .media-left, .media-right, .media-body {
@@ -66,10 +78,16 @@ textarea{
     vertical-align: middle;
 }
 
+.media-body{
+    /*position: absolute;*/
+    /*top: 20px;*/
+    /*left: 355px;*/
+}
+
 .navbar-brand img{
     width: 60px;
     height: 60px;
-    margin-top: -25px;
+    margin-top: -20px;
     margin-left: 0px;
 }
 
@@ -77,4 +95,27 @@ textarea{
     top: -7px;
     float: right;
     margin-right: auto;
+}
+
+.review img{
+    width: 60px;
+    height: 30px;
+}
+
+.caption .genre{
+    position: absolute;
+    bottom: 85px;
+
+}
+
+.addintinalInfo{
+    display: inline-block;
+    position: absolute;
+    bottom: 35px;
+}
+
+.backBtn{
+    position: absolute;
+    top:15px;
+    left: 10px;
 }

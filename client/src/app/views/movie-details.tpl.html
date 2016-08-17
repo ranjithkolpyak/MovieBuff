@@ -1,5 +1,5 @@
 <div class="jumbotron">
-    <h6><a ng-href="#/movies" class="btn btn-info btn-xs">Back to movies</a></h6>
+    <h6><a ng-href="#/movies" class="btn btn-info btn-sm backBtn">Back to movies</a></h6>
     <div class="well well-lg">
         <div class="media">
             <div class="media-left">
@@ -8,9 +8,14 @@
                 </a>
             </div>
             <div class="media-body">
-                <h2 class="media-heading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}}</small></h2>
+                <h2 class="media-heading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}} | {{movieDetailsVm.movie.year}}</small></h2>
                 <span ng-repeat="genre in movieDetailsVm.movie.genre">{{genre}} </span>
                 <p>{{movieDetailsVm.movie.plot}}</p>
+                <p>{{movieDetailsVm.movie.rated}}</p>
+                <p>{{movieDetailsVm.movie.runTime}}</p>
+                <p><span ng-repeat="actor in movieDetailsVm.movie.cast"> {{actor}} ,</span></p>
+                <p ng-if="movieDetailsVm.movie.director"><span ng-repeat="director in movieDetailsVm.movie.director"> {{director}} ,</span></p>
+                <p ng-if="movieDetailsVm.movie.writer"><span ng-repeat="writer in movieDetailsVm.movie.writer"> {{writer}} ,</span></p>
             </div>
         </div>
     </div>
@@ -22,9 +27,10 @@
             <a ng-if= "movieDetailsVm.profile.app_metadata.admin" ng-href="#/addreview" class="btn btn-info btn-sm">Edit</a>
         </span>
         <p>Awards: {{movieDetailsVm.review.awards}}</p>
-        <p>IMBD Rating: {{movieDetailsVm.review.imdbRating}}</p>
-        <p>IMDB Votes: {{movieDetailsVm.review.imdbVotes | number}}</p>
-        <p ng-if="movieDetailsVm.review.imdbMetaScore">IMDB MetaScore{{movieDetailsVm.review.imdbMetaScore}}</p>
+        <p><img src="/images/imdb.png"> Rating: {{movieDetailsVm.review.imdbRating}}</p>
+        <p><img src="/images/imdb.png"> Votes: {{movieDetailsVm.review.imdbVotes | number}}</p>
+        <p ng-if="movieDetailsVm.review.imdbMetaScore"><img src="/images/imdb.png"> MetaScore: {{movieDetailsVm.review.imdbMetaScore}}</p>
+        <p>More at : <a ng-href="http://www.imdb.com/title/{{movieDetailsVm.review.imdbId}}"><img src="/images/imdb.png"></a></p>
     </div>
 
     <div class="well well-lg">
