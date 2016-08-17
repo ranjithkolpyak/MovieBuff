@@ -27,7 +27,7 @@
             <li><a href="#" ng-click="toolbarVm.login()" ng-if="!toolbarVm.auth.isAuthenticated">Login</a></li>
             <li><a href="#" ng-if="!toolbarVm.auth.isAuthenticated">Register</a></li>
             <li uib-dropdown ng-if="toolbarVm.auth.isAuthenticated">
-                <a uib-dropdown-toggle><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                <a uib-dropdown-toggle>{{toolbarVm.auth.profile.user_metadata.firstName}} | <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                 <ul uib-dropdown-menu>
                     <li><a ng-href="#/profile">Profile</a> </li>
                     <li><a ng-href="#/settings">Settings</a> </li>

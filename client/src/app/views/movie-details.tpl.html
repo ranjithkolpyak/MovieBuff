@@ -18,12 +18,12 @@
     <div class="well well-lg review">
         <h3>Reviews</h3>
         <span>
-            <a ng-href="#/addreview/{{movieDetailsVm.movie.movieId}}" class="btn btn-info btn-sm">Add</a>
-            <a ng-href="#/addreview" class="btn btn-info btn-sm">Edit</a>
+            <a ng-if= "movieDetailsVm.profile.app_metadata.admin" ng-href="#/addreview/{{movieDetailsVm.movie.movieId}}" class="btn btn-info btn-sm" >Add</a>
+            <a ng-if= "movieDetailsVm.profile.app_metadata.admin" ng-href="#/addreview" class="btn btn-info btn-sm">Edit</a>
         </span>
         <p>Awards: {{movieDetailsVm.review.awards}}</p>
         <p>IMBD Rating: {{movieDetailsVm.review.imdbRating}}</p>
-        <p>IMDB Votes: {{movieDetailsVm.review.imdbVotes}}</p>
+        <p>IMDB Votes: {{movieDetailsVm.review.imdbVotes | number}}</p>
         <p ng-if="movieDetailsVm.review.imdbMetaScore">IMDB MetaScore{{movieDetailsVm.review.imdbMetaScore}}</p>
     </div>
 
@@ -32,7 +32,7 @@
         <div ng-repeat="commentObj in movieDetailsVm.comments">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{commentObj.author}}</h3>
+                    <h3 class="panel-title">{{commentObj.author}} <span class="glyphicon glyphicon-trash btn trashButton" ng-click="movieDetailsVm.deleteComment(commentObj.commentId)"></span></h3>
                 </div>
                 <div class="panel-body">
                     <p>{{commentObj.comment}}</p>
@@ -41,7 +41,6 @@
         </div>
         <div>
             <form role="form" ng-submit="movieDetailsVm.addComment()">
-                <input class="form-control col-sm-4" type="text" placeholder="Name" name="author" ng-model="movieDetailsVm.newComment.author">
                 <textarea class="form-control commentArea" rows="3" ng-model="movieDetailsVm.newComment.comment" placeholder="Comment Here...."></textarea>
                 <button class="btn btn-info btn-sm" type="submit" style="float: right" >Comment</button>
             </form>

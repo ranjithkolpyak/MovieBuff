@@ -15,13 +15,18 @@ body {
     color: white;
 }
 
+.jumbotron .well{
+    color: black;
+}
+
 img{
     width: 200px;
     height: 100px;
 }
-/*span{*/
-    /*float: left;*/
-/*}*/
+
+.thumbnail{
+    height: 510px;
+}
 
 p{
     font-size: 12px;
@@ -66,4 +71,10 @@ textarea{
     height: 60px;
     margin-top: -25px;
     margin-left: 0px;
+}
+
+.trashButton{
+    top: -7px;
+    float: right;
+    margin-right: auto;
 }
