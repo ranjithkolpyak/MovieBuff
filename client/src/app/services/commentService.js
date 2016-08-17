@@ -33,7 +33,6 @@
         }
 
         function removeComment(id) {
-            console.log("in service " +id);
             return $http.delete(CONFIG.API_HOST + '/comments/delete/'+id)
                 .then(successFn, errorFn);
         }

@@ -16,9 +16,6 @@
         init();
 
         function init() {
-
-            console.log("MovieController");
-
             movieService.getAllMovies()
                 .then(function (movies) {
                         movieVm.movies = movies;

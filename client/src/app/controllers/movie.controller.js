@@ -22,8 +22,6 @@
         init();
 
         function init() {
-
-            console.log('MovieDetailController');
             movieService.getMovieDetails($routeParams.id)
                 .then(function (movies) {
                         movieDetailsVm.movie = movies;
@@ -61,7 +59,6 @@
         }
 
         function deleteComment(id) {
-            console.log('deleting the comment'+id);
             console.log($routeParams.id);
             commentService.removeComment(id)
                 .then(function (response) {
