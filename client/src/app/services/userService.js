@@ -24,11 +24,6 @@
             return $http.get(CONFIG.API_HOST + '/user'+ userName)
                 .then(successFn, errorFn);
         }
-
-        function authUser(person){
-            return $http.post(CONFIG.API_HOST + '/user/login', person)
-                .then(successFn, errorFn);
-        }
         
         function createUser(user) {
             return $http.post(CONFIG.API_HOST + '/user/add', user)

@@ -22,7 +22,9 @@
 
         $routeProvider
             .when('/home',{
-                templateUrl: 'app/views/home.tpl.html'
+                templateUrl: 'app/views/home.tpl.html',
+                controller: 'MovieController',
+                controllerAs: 'homeVm'
             })
             .when('/movies',{
                 templateUrl: 'app/views/movies.tpl.html',
@@ -74,11 +76,6 @@
                 controller: 'UpdateMovieController',
                 controllerAs: 'updateMovieVm'
             })
-            // .when('/delete/movie/:movieId',{
-            //
-            //     controller: 'DeleteMovieController',
-            //     controllerAs: 'deleteMovieVm'
-            // })
             .otherwise(
                 {redirectTo: '/home'}
             );

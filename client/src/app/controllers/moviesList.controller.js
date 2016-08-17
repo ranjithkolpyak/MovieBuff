@@ -7,10 +7,11 @@
     angular.module('myApp')
         .controller('MovieController', MovieController);
 
-    MovieController.$inject = ['movieService' ];
-    function MovieController(movieService) {
+    MovieController.$inject = ['movieService', '$route'];
+    function MovieController(movieService, $route) {
 
         var movieVm = this;
+        movieVm.deleteMovie = deleteMovie;
         movieVm.profile = JSON.parse(localStorage.getItem('profile'));
 
         init();
@@ -24,6 +25,16 @@
                         console.log(error);
                     });
             console.log('movieController');
+        }
+
+        function deleteMovie(movieId) {
+            movieService.removeMovie(movieId)
+                .then(function (response) {
+                    $route.reload();
+                },
+                function (error) {
+                    console.log(error)
+                });
         }
     }
 })();

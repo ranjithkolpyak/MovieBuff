@@ -28,7 +28,6 @@
         }
 
         function editMovie() {
-            updateMovieVm.newMovie.genre = StringtoArray(updateMovieVm.newMovie.genre);
             movieService.updateMovie(updateMovieVm.newMovie, $routeParams.movieId)
                 .then(function (response) {
                         $location.path('/movies');
@@ -36,12 +35,6 @@
                     function (error) {
                         console.log(error);
                     });
-        }
-
-        function StringtoArray(str) {
-            var arr = str.split(",");
-            console.log(arr);
-            return arr;
         }
     }
 })();

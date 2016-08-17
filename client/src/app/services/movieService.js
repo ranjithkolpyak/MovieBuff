@@ -51,7 +51,7 @@
         }
 
         function removeMovie(id) {
-            return $http.delete(CONFIG.API_HOST + '/movie/delete'+id)
+            return $http.delete(CONFIG.API_HOST + '/movie/delete/'+id)
                 .then(successFn, errorFn)
         }
 

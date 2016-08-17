@@ -21,7 +21,14 @@
 
         function addMovie() {
             console.log('adding movie....');
-            /*movie object manipulation*/
+
+            addMovieVm.newMovie.genre =  (addMovieVm.newMovie.genre)? StringtoArray(addMovieVm.newMovie.genre) : [];
+            addMovieVm.newMovie.cast = (addMovieVm.newMovie.cast)? StringtoArray(addMovieVm.newMovie.cast): [];
+            addMovieVm.newMovie.lang = (addMovieVm.newMovie.lang)? StringtoArray(addMovieVm.newMovie.lang): [];
+            addMovieVm.newMovie.writer = (addMovieVm.newMovie.writer)? StringtoArray(addMovieVm.newMovie.writer): [];
+            addMovieVm.newMovie.country = (addMovieVm.newMovie.country)? StringtoArray(addMovieVm.newMovie.country): [];
+            addMovieVm.newMovie.director = (addMovieVm.newMovie.director)? StringtoArray(addMovieVm.newMovie.director): [];
+            console.dir(addMovieVm.newMovie)
             movieService.addMovie(addMovieVm.newMovie)
                 .then(function (response) {
                         $location.path('/movies');
@@ -31,8 +38,9 @@
                     });
         }
 
-        function StringtoArray(string) {
-            var arr = string.split(",");
+        function StringtoArray(str) {
+            var arr = str.split(",");
+            console.log(arr);
             return arr;
         }
     }
