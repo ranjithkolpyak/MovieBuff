@@ -2,22 +2,16 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#/home">
-                <img src="images/MB-logo.png" alt="Brand">
-            </a>
+                <img src="images/MB-logo.png" alt="Brand"></a>
         </div>
-        <ul class="nav navbar-nav navbar-left">
-            <li uib-dropdown is-open="false" auto-close dropdown-append-to-body>
-                <a uib-dropdown-toggle ng-if="toolbarVm.auth.isAuthenticated">Browse<span class="caret"></span></a>
-                <ul uib-dropdown-menu>
-                    <li><a ng-href="#/movies">Movies</a> </li>
-                    <li><a ng-href="#/topRated">Top Rated</a> </li>
-                    <li><a ng-href="#/latest">Latest</a> </li>
-                </ul>
-            </li>
+        <ul class="nav navbar-nav navbar-left" ng-if="toolbarVm.auth.isAuthenticated">
+            <li><a ng-href="#/movies">Movies</a> </li>
+            <li><a ng-href="#/topRated">Top Rated</a> </li>
+            <li><a ng-href="#/latest">Latest</a> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#" ng-click="toolbarVm.login()" ng-if="!toolbarVm.auth.isAuthenticated">Login</a></li>
-            <li><a href="#" ng-if="!toolbarVm.auth.isAuthenticated">Register</a></li>
+            <!--<li><a href="#" ng-if="!toolbarVm.auth.isAuthenticated">Register</a></li>-->
             <li uib-dropdown ng-if="toolbarVm.auth.isAuthenticated">
                 <a uib-dropdown-toggle>{{toolbarVm.auth.profile.user_metadata.firstName}} | <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                 <ul uib-dropdown-menu>

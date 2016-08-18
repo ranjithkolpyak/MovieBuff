@@ -17,7 +17,7 @@
                             <p class="addintinalInfo">
                                 <a ng-href="#/details/{{movie.movieId}}" class="btn btn-info btn-sm" role="button">More Info</a>
                                 <a ng-if= "movieVm.profile.app_metadata.admin" ng-href="#/update/{{movie.movieId}}" class="btn btn-info btn-sm" role="button" >Edit</a>
-                                <a ng-if= "movieVm.profile.app_metadata.admin" ng-click="movieVm.deleteMovie(movie.movieId)" class="btn btn-info btn-sm" role="button" >Delete</a>
+                                <a ng-if= "movieVm.profile.app_metadata.admin" ng-click="movieVm.deleteMovie(movie.movieId)" class="btn btn-danger btn-sm" role="button" >Delete</a>
                             </p>
                         </div>
                     </div>

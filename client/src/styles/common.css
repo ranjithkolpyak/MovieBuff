@@ -138,3 +138,25 @@ textarea{
     bottom: 62px;
     right: 300px;
 }
+
+.addReview{
+    position: absolute;
+    bottom: 63px;
+    left: 175px;
+}
+
+.posterArea img{
+    height: 400px;
+    width: 300px;
+}
+
+.detailsArea{
+    position: absolute;
+    left: 375px;
+    top: 20px;
+    margin: 10px;
+}
+
+.movieHeading{
+
+}

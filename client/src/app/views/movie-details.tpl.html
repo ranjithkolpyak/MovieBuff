@@ -1,22 +1,20 @@
 <div class="jumbotron">
     <h6><a ng-href="#/movies" class="btn btn-info btn-sm backBtn">Back to movies</a></h6>
     <div class="well well-lg">
-        <div class="media">
-            <div class="media-left">
-                <a ng-href="{{movieDetailsVm.movie.poster}}">
-                    <img class="media-object" ng-src="{{movieDetailsVm.movie.poster}}" style="width: 300px; height: 300px">
-                </a>
-            </div>
-            <div class="media-body">
-                <h2 class="media-heading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}} | {{movieDetailsVm.movie.year}}</small></h2>
-                <span ng-repeat="genre in movieDetailsVm.movie.genre">{{genre}} </span>
-                <p>{{movieDetailsVm.movie.plot}}</p>
-                <p>{{movieDetailsVm.movie.rated}}</p>
-                <p>{{movieDetailsVm.movie.runTime}}</p>
-                <p><span ng-repeat="actor in movieDetailsVm.movie.cast"> {{actor}} ,</span></p>
-                <p ng-if="movieDetailsVm.movie.director"><span ng-repeat="director in movieDetailsVm.movie.director"> {{director}} ,</span></p>
-                <p ng-if="movieDetailsVm.movie.writer"><span ng-repeat="writer in movieDetailsVm.movie.writer"> {{writer}} ,</span></p>
-            </div>
+        <div class="posterArea">
+            <a ng-href="{{movieDetailsVm.movie.poster}}">
+                <img ng-src="{{movieDetailsVm.movie.poster}}">
+            </a>
+        </div>
+        <div class="detailsArea">
+            <h2 class="movieHeading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}} | {{movieDetailsVm.movie.year}}</small></h2>
+            <span ng-repeat="genre in movieDetailsVm.movie.genre">{{genre}} </span>
+            <p>{{movieDetailsVm.movie.plot}}</p>
+            <p>{{movieDetailsVm.movie.rated}}</p>
+            <p>{{movieDetailsVm.movie.runTime}}</p>
+            <p><span ng-repeat="actor in movieDetailsVm.movie.cast"> {{actor}} ,</span></p>
+            <p ng-if="movieDetailsVm.movie.director"><span ng-repeat="director in movieDetailsVm.movie.director"> {{director}} ,</span></p>
+            <p ng-if="movieDetailsVm.movie.writer"><span ng-repeat="writer in movieDetailsVm.movie.writer"> {{writer}} ,</span></p>
         </div>
     </div>
 
