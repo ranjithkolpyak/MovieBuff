@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieBuff | ClientApp</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+
+    <!-- vendor:css -->
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/common.css">
+    <!-- endinject -->
+
+    <!-- app:css -->
+    <!-- endinject -->
+</head>
+<body>
+    <toolbar> </toolbar>
+
+    <div class="container" ng-view>
+
+    </div>
+
+
+
+
+
+<!-- bower:js -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-messages/angular-messages.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/angular-jwt/dist/angular-jwt.js"></script>
+<script src="/bower_components/angular-storage/dist/angular-storage.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/auth0-lock/build/auth0-lock.js"></script>
+<script src="/bower_components/auth0.js/build/auth0.js"></script>
+<script src="/bower_components/auth0-angular/build/auth0-angular.js"></script>
+<!-- endinject -->
+
+<!-- vendor:js -->
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="app/app.js"></script>
+<script src="app/services/userService.js"></script>
+<script src="app/services/reviewService.js"></script>
+<script src="app/services/movieService.js"></script>
+<script src="app/services/commentService.js"></script>
+<script src="app/controllers/user.controller.js"></script>
+<script src="app/controllers/updatemovie.controller.js"></script>
+<script src="app/controllers/toolbar.controller.js"></script>
+<script src="app/controllers/review.controller.js"></script>
+<script src="app/controllers/register.controller.js"></script>
+<script src="app/controllers/moviesList.controller.js"></script>
+<script src="app/controllers/movie.controller.js"></script>
+<script src="app/controllers/movie-search.controller.js"></script>
+<script src="app/controllers/deletemovie.controller.js"></script>
+<script src="app/controllers/comment.controller.js"></script>
+<script src="app/controllers/addreview.controller.js"></script>
+<script src="app/controllers/addmovie.controller.js"></script>
+<script src="app/directives/toolbar.dir.js"></script>
+<script src="app/app.constant.js"></script>
+<!-- endinject -->
+
+<!-- app:js -->
+<!-- endinject -->
+</body>
+</html>

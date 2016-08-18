@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="jumbotron row addMovie">
+        <form role="form" ng-submit="addMovieVm.addMovie()">
+            <div class="form-group col-lg-6">
+                <label for="name">Movie Name</label>
+                <input type="text" class="form-control" id="name" ng-model="addMovieVm.newMovie.name">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="year">Year Released</label>
+                <input type="text" class="form-control" id="year" ng-model="addMovieVm.newMovie.year">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="rated">Rated</label>
+                <input type="text" class="form-control" id="rated" ng-model="addMovieVm.newMovie.rated">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="runTime">Run Time</label>
+                <input type="text" class="form-control" id="runTime" ng-model="addMovieVm.newMovie.runTime">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="type">Type | Movie/Series</label>
+                <input type="text" class="form-control" id="type" ng-model="addMovieVm.newMovie.type">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="released">Release Date</label>
+                <input type="text" class="form-control" id="released" ng-model="addMovieVm.newMovie.released">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="language">Languages Available</label>
+                <input type="text" class="form-control" id="language" ng-model="addMovieVm.newMovie.lang">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" ng-model="addMovieVm.newMovie.genre">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" ng-model="addMovieVm.newMovie.country">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="director">Director</label>
+                <input type="text" class="form-control" id="director" ng-model="addMovieVm.newMovie.director">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="writer">Writer</label>
+                <input type="text" class="form-control" id="writer" ng-model="addMovieVm.newMovie.writer">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="cast">Cast</label>
+                <input type="text" class="form-control" id="cast" ng-model="addMovieVm.newMovie.cast">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="plot">Plot</label>
+                <input type="text" class="form-control" id="plot" ng-model="addMovieVm.newMovie.plot">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="poster">Poster Link</label>
+                <input type="url" class="form-control" id="poster" ng-model="addMovieVm.newMovie.poster">
+            </div>
+
+            <div class="form-group col-lg-6">
+                <a ng-href="#/movies" class="btn btn-danger btn-sm">Cancel</a>
+                <button type="submit" class="btn btn-info btn-sm addMovieButton">Add Movie</button>
+            </div>
+        </form>
+    </div>
+</div>

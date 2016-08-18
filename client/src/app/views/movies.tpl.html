@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="jumbotron">
+        <p>
+            <input class="form-control " type="text" placeholder="Search" ng-model="movieVm.searchText">
+            <a ng-if= "movieVm.profile.app_metadata.admin" ng-href="#/addmovie" class="btn btn-info btn-sm addMovieBTN">Add Movie</a>
+        </p>
+        <h3>New Movies List</h3>
+
+        <div class="row">
+            <div ng-repeat="movie in movieVm.movies | filter: movieVm.searchText">
+                <div class="col-lg-3 col-sm-6 col-md-4 ">
+                    <div class="thumbnail">
+                        <img ng-src="{{movie.poster}}">
+                        <div class="caption">
+                            <h3>{{movie.name}}</h3>
+                            <p class="genre"><span ng-repeat="genre in movie.genre"> {{genre}} </span></p>
+                            <p class="addintinalInfo">
+                                <a ng-href="#/details/{{movie.movieId}}" class="btn btn-info btn-sm" role="button">More Info</a>
+                                <a ng-if= "movieVm.profile.app_metadata.admin" ng-href="#/update/{{movie.movieId}}" class="btn btn-info btn-sm" role="button" >Edit</a>
+                                <a ng-if= "movieVm.profile.app_metadata.admin" ng-click="movieVm.deleteMovie(movie.movieId)" class="btn btn-danger btn-sm" role="button" >Delete</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

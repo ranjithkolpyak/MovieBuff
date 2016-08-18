@@ -1,0 +1,63 @@
+<div class="jumbotron">
+    <h6><a ng-href="#/movies" class="btn btn-info btn-sm backBtn">Back to movies</a></h6>
+    <div class="well well-lg">
+        <div class="posterArea">
+            <a ng-href="{{movieDetailsVm.movie.poster}}">
+                <img ng-src="{{movieDetailsVm.movie.poster}}">
+            </a>
+        </div>
+        <div class="detailsArea">
+            <h2 class="movieHeading">{{movieDetailsVm.movie.name}} <small>{{movieDetailsVm.movie.type}} | {{movieDetailsVm.movie.year}}</small></h2>
+            <span ng-repeat="genre in movieDetailsVm.movie.genre">{{genre}} </span>
+            <p>{{movieDetailsVm.movie.plot}}</p>
+            <p>{{movieDetailsVm.movie.rated}}</p>
+            <p>{{movieDetailsVm.movie.runTime}}</p>
+            <p><span ng-repeat="actor in movieDetailsVm.movie.cast"> {{actor}} ,</span></p>
+            <p ng-if="movieDetailsVm.movie.director"><span ng-repeat="director in movieDetailsVm.movie.director"> {{director}} ,</span></p>
+            <p ng-if="movieDetailsVm.movie.writer"><span ng-repeat="writer in movieDetailsVm.movie.writer"> {{writer}} ,</span></p>
+        </div>
+    </div>
+
+    <div class="well well-lg review">
+        <h3>Reviews</h3>
+        <span>
+            <a ng-if= "movieDetailsVm.profile.app_metadata.admin" ng-href="#/addreview/{{movieDetailsVm.movie.movieId}}" class="btn btn-info btn-sm" >Add</a>
+            <a ng-if= "movieDetailsVm.profile.app_metadata.admin" ng-href="#/addreview" class="btn btn-info btn-sm">Edit</a>
+        </span>
+        <p>Awards: {{movieDetailsVm.review.awards}}</p>
+        <p><img src="/images/imdb.png"> Rating: {{movieDetailsVm.review.imdbRating}}</p>
+        <p><img src="/images/imdb.png"> Votes: {{movieDetailsVm.review.imdbVotes | number}}</p>
+        <p ng-if="movieDetailsVm.review.imdbMetaScore"><img src="/images/imdb.png"> MetaScore: {{movieDetailsVm.review.imdbMetaScore}}</p>
+        <p>More at : <a ng-href="http://www.imdb.com/title/{{movieDetailsVm.review.imdbId}}"><img src="/images/imdb.png"></a></p>
+    </div>
+
+    <div class="well well-lg">
+        <h3>Comments</h3>
+        <div ng-repeat="commentObj in movieDetailsVm.comments">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{commentObj.author}} <span ng-if= "movieDetailsVm.profile.app_metadata.admin" class="glyphicon glyphicon-trash btn trashButton" ng-click="movieDetailsVm.deleteComment(commentObj.commentId)"></span></h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{commentObj.comment}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form role="form" ng-submit="movieDetailsVm.addComment()">
+                <textarea class="form-control commentArea" rows="3" ng-model="movieDetailsVm.newComment.comment" placeholder="Comment Here...."></textarea>
+                <span class="rating">
+                    <label for="sel1">Your Rating:</label>
+                    <select class="form-control ratingSelect" id="sel1" ng-model="movieDetailsVm.rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </span>
+                <button class="btn btn-info btn-sm" type="submit" style="float: right" >Comment</button>
+            </form>
+        </div>
+    </div>
+</div>

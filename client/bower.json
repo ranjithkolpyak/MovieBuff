@@ -1,0 +1,41 @@
+{
+  "name": "client",
+  "description": "Client side application for project MovieFlix",
+  "main": "index.js",
+  "authors": [
+    "Ranjith Kolpyak"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ranjithkolpyak/MovieBuff",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-messages": "^1.5.8",
+    "angular-bootstrap": "^2.0.1",
+    "angular-jwt": "^0.0.9",
+    "angular-storage": "^0.5.0",
+    "angular-route": "^1.5.8",
+    "auth0-angular": "^4.2.3",
+    "auth0-lock": "^9.0.0",
+    "font-awesome": "fontawesome#^4.6.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "jquery": {
+      "main": []
+    }
+  },
+  "resolutions": {
+    "angular": "^1.5.8"
+  }
+}
